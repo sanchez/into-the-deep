@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "BaseWorld",
+"language": "GDScript",
+"path": "res://levels/BaseWorld.gd"
+}, {
 "base": "Reference",
 "class": "Buff",
 "language": "GDScript",
@@ -28,12 +33,19 @@ _global_script_classes=[ {
 "class": "HealthStatus",
 "language": "GDScript",
 "path": "res://components/HealthStatus.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://characters/Player.gd"
 } ]
 _global_script_class_icons={
+"BaseWorld": "",
 "Buff": "",
 "Damage": "",
 "Enemy": "",
-"HealthStatus": ""
+"HealthStatus": "",
+"Player": ""
 }
 
 [application]
@@ -41,6 +53,10 @@ _global_script_class_icons={
 config/name="Into The Deep"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Utils="*res://Utils.gd"
 
 [display]
 
@@ -141,6 +157,13 @@ ui_end={
 "deadzone": 0.5,
 "events": [  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Physical"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Item"
 
 [physics]
 

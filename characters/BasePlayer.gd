@@ -1,7 +1,7 @@
-extends KinematicBody2D
+extends Player
 
-export (int) var ACCELERATION = 600
-export (int) var MAX_SPEED = 128
+export (int) var ACCELERATION = 500
+export (int) var MAX_SPEED = 90
 export (float) var FRICTION = 7.0
 
 var motion := Vector2.ZERO
