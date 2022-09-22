@@ -6,6 +6,8 @@ export (float) var FRICTION = 7.0
 
 var motion := Vector2.ZERO
 
+onready var HealthStatus := $HealthStatus
+
 func _physics_process(delta):
 	var inputVector = get_input()
 	motion = apply_motion(inputVector, delta)
@@ -38,3 +40,6 @@ func get_input():
 	
 func move():
 	motion = move_and_slide(motion)
+
+func take_damage(damage: Damage):
+	HealthStatus.on_hit(damage)

@@ -1,5 +1,8 @@
 extends Node
 
+var PIXEL_SIZE = 2
+var TILE_SIZE = 64
+
 func find_closest_node(point: Vector2, nodes: Array) -> Node2D:
 	var best_match = null
 	var best_dist = -1

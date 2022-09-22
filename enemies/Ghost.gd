@@ -1,6 +1,11 @@
 extends Enemy
 
 var SEARCH_RANGE = 200
+var ATTACK_RANGE = 2 * Utils.TILE_SIZE * Utils.PIXEL_SIZE
+var ATTACK_AMOUNT = 3
+
+onready var Attack := $Attack
+onready var HealthStatus := $HealthStatus
 
 var last_target = Vector2.ZERO
 var last_position = Vector2.ZERO
@@ -21,8 +26,23 @@ func get_new_random_location():
 	var search_vect = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized() * SEARCH_RANGE
 	var new_target = search_vect + global_position
 	last_target = new_target
+	
+func attack(target):
+	# TODO: Animate the attack
+	pass
+	
+func process_attack(world: BaseWorld):
+	var players = world.get_players()
+	var closest_player = Utils.find_closest_node(get_position(), players)
+	if closest_player != null:
+		var dist = (closest_player.global_position - get_position()).length_squared()
+		if dist < (ATTACK_RANGE * ATTACK_RANGE):
+			var damage = Damage.new(ATTACK_AMOUNT)
+			Attack.attack(closest_player, damage)
 
 func think(delta: float, world: BaseWorld):
+	process_attack(world)
+	
 	var target = get_target(world)
 	move_towards(target, delta)
 	
@@ -37,3 +57,6 @@ func think(delta: float, world: BaseWorld):
 	#	last_target = null
 	
 	last_position = global_position
+
+func take_damage(damage: Damage):
+	HealthStatus.on_hit(damage)

@@ -12,7 +12,8 @@ func get_players():
 func get_enemies():
 	var enemies = []
 	for x in get_children():
-		if x is Enemy:
-			enemies.append(x)
+		pass
+		#if x is Enemy:
+		#	enemies.append(x)
 			
 	return enemies
