@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/BasePlayer.tscn" type="PackedScene" id=1]
+
+[node name="Overworld" type="Node"]
+
+[node name="BasePlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 54, 41 )

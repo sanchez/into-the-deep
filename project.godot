@@ -9,13 +9,31 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Buff",
+"language": "GDScript",
+"path": "res://components/Buff.gd"
+}, {
+"base": "Reference",
+"class": "Damage",
+"language": "GDScript",
+"path": "res://components/Damage.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://enemies/Enemy.gd"
+}, {
+"base": "Node",
+"class": "HealthStatus",
+"language": "GDScript",
+"path": "res://components/HealthStatus.gd"
 } ]
 _global_script_class_icons={
-"Enemy": ""
+"Buff": "",
+"Damage": "",
+"Enemy": "",
+"HealthStatus": ""
 }
 
 [application]
