@@ -3,7 +3,6 @@ extends Node
 signal on_attack(target)
 
 export (int) var COOLDOWN = 1000
-export (int) var DAMAGE = 5
 
 onready var Timer := $Timer
 
