@@ -3,11 +3,11 @@ class_name Buff
 var key = "Base"
 var stack: int = 0
 
-func on_apply(health):
+func on_apply(_health):
 	pass
 	
-func on_damage(health):
+func on_damage(_health):
 	pass
 	
-func on_tick(health, delta: float):
+func on_tick(_health, _delta: float):
 	pass

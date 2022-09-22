@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var ACCELERATION = 600
 export (int) var MAX_SPEED = 128
-export (float) var FRICTION = 0.1
+export (float) var FRICTION = 7.0
 
 var motion := Vector2.ZERO
 
@@ -21,11 +21,11 @@ func apply_rotation(inputVector: Vector2):
 	
 func apply_motion(inputVector: Vector2, delta: float):
 	var newMotion = motion + (inputVector * ACCELERATION * delta)
-	return newMotion.clamped(MAX_SPEED)
+	return newMotion.limit_length(MAX_SPEED)
 	
 func apply_friction(inputVector: Vector2):
 	if inputVector.length_squared() == 0:
-		return motion.slerp(Vector2.ZERO, FRICTION)
+		return motion.move_toward(Vector2.ZERO, FRICTION)
 	return motion
 	
 func get_input():
@@ -34,7 +34,7 @@ func get_input():
 	inputVector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	inputVector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-	return inputVector.limit_length(1)
+	return inputVector.normalized()
 	
 func move():
 	motion = move_and_slide(motion)
