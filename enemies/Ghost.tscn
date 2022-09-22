@@ -32,6 +32,13 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 2 )
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
@@ -39,12 +46,6 @@ texture = ExtResource( 1 )
 COOLDOWN = 3000
 
 [node name="HealthStatus" parent="." instance=ExtResource( 4 )]
-
-[node name="Particles2D" type="Particles2D" parent="."]
-emitting = false
-amount = 50
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource( 2 )
+position = Vector2( 0, 16 )
 
 [connection signal="on_attack" from="Attack" to="." method="attack"]

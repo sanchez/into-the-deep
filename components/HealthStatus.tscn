@@ -11,3 +11,8 @@ margin_top = -1.0
 margin_right = 13.0
 margin_bottom = 1.0
 color = Color( 0.0117647, 0.141176, 0.247059, 1 )
+
+[node name="BuffStart" type="Position2D" parent="."]
+position = Vector2( -10, 3 )
+
+[node name="Buffs" type="Node2D" parent="."]
