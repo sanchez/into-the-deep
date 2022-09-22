@@ -10,7 +10,9 @@ func _ready():
 	health = MAX_HEALTH
 	
 func get_buff(key: String):
-	return applied_buffs[key]
+	if applied_buffs.has(key):
+		return applied_buffs[key]
+	return null
 	
 func add_buff(buff: Buff):
 	applied_buffs[buff.key] = buff
