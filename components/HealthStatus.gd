@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name HealthStatus
 
 export (int) var MAX_HEALTH = 100
@@ -8,6 +8,12 @@ var applied_buffs = {}
 
 func _ready():
 	health = MAX_HEALTH
+	
+func get_buff(key: String):
+	return applied_buffs[key]
+	
+func add_buff(buff: Buff):
+	applied_buffs[buff.key] = buff
 	
 func on_hit(damage: Damage):
 	var damage_amount = clamp(damage.amount, 0, MAX_HEALTH)
@@ -27,3 +33,6 @@ func _process(delta):
 		var buff = applied_buffs[key]
 		if buff is Buff:
 			buff.on_tick(self, delta)
+			
+func draw_health():
+	pass
