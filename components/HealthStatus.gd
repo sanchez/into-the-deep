@@ -9,6 +9,8 @@ var position_offset = Vector2.ZERO
 
 onready var BuffStart := $BuffStart
 onready var Buffs := $Buffs
+onready var HealthBar := $HealthBar
+onready var RemainingHealth := $HealthBar/RemainingHealth
 
 func _ready():
 	health = MAX_HEALTH
@@ -74,3 +76,6 @@ func _draw():
 func draw_health():
 	rotation = -owner.rotation
 	global_position = owner.global_position + position_offset
+
+	var health_ratio = clamp(health / MAX_HEALTH, 0, 1)
+	RemainingHealth.rect_scale.x = health_ratio
