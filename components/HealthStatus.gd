@@ -3,7 +3,9 @@ class_name HealthStatus
 
 export (int) var MAX_HEALTH = 100
 
-var health: float = 0
+signal on_death()
+
+var health: float = 0 setget set_health
 var applied_buffs = {}
 var position_offset = Vector2.ZERO
 
@@ -15,6 +17,11 @@ onready var RemainingHealth := $HealthBar/RemainingHealth
 func _ready():
 	health = MAX_HEALTH
 	position_offset = position
+	
+func set_health(value):
+	health = value
+	if health <= 0:
+		emit_signal("on_death")
 	
 func get_buff(key: String):
 	if applied_buffs.has(key):
@@ -31,13 +38,14 @@ func remove_buff(buff: Buff):
 	update()
 	
 func on_hit(damage: Damage):
-	var damage_amount = clamp(damage.amount, 0, MAX_HEALTH)
-	health -= damage_amount
-	
 	for key in applied_buffs:
 		var buff = applied_buffs[key]
 		if buff is Buff:
-			buff.on_damage(self)
+			buff.on_damage(self, damage)
+			
+	# a single hit of damage can't kill you
+	var damage_amount = clamp(damage.amount, 0, MAX_HEALTH - 1)
+	set_health(health - damage_amount)
 	
 	for x in damage.buffs:
 		if x is Buff:

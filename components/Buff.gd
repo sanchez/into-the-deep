@@ -2,6 +2,7 @@ class_name Buff
 
 var key = "Base"
 var stack: int = 1 setget set_stack
+var is_debuff = true
 
 var attached_healths = []
 
@@ -21,7 +22,7 @@ func set_stack(value):
 func on_apply(_health):
 	pass
 	
-func on_damage(_health):
+func on_damage(_health, _damage):
 	pass
 	
 func on_tick(_health, _delta: float):

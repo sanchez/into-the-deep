@@ -20,6 +20,21 @@ _global_script_classes=[ {
 "path": "res://components/Buff.gd"
 }, {
 "base": "Buff",
+"class": "BuffBleed",
+"language": "GDScript",
+"path": "res://components/buffs/bleed.gd"
+}, {
+"base": "Buff",
+"class": "BuffPoison",
+"language": "GDScript",
+"path": "res://components/buffs/poison.gd"
+}, {
+"base": "Buff",
+"class": "BuffShattered",
+"language": "GDScript",
+"path": "res://components/buffs/shattered.gd"
+}, {
+"base": "Buff",
 "class": "BuffSlowed",
 "language": "GDScript",
 "path": "res://components/buffs/slowed.gd"
@@ -47,6 +62,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BaseWorld": "",
 "Buff": "",
+"BuffBleed": "",
+"BuffPoison": "",
+"BuffShattered": "",
 "BuffSlowed": "",
 "Damage": "",
 "Enemy": "",
