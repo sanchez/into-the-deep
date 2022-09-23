@@ -21,6 +21,11 @@ func get_buff(key: String):
 	
 func add_buff(buff: Buff):
 	applied_buffs[buff.key] = buff
+	buff.attach(self)
+	update()
+	
+func remove_buff(buff: Buff):
+	applied_buffs.erase(buff.key)
 	update()
 	
 func on_hit(damage: Damage):
@@ -34,7 +39,11 @@ func on_hit(damage: Damage):
 	
 	for x in damage.buffs:
 		if x is Buff:
-			x.on_apply(self)
+			if applied_buffs.has(x.key):
+				applied_buffs[x.key].on_apply(self)
+			else:
+				x.on_apply(self)
+				add_buff(x)
 
 func _process(delta):
 	for key in applied_buffs:
@@ -45,12 +54,20 @@ func _process(delta):
 	draw_health()
 	
 func _draw():
+	var font = Utils.font(2)
+	
 	var buff_offset = 0
 	for key in applied_buffs:
+		if applied_buffs[key] == null:
+			continue
+		
 		var position = BuffStart.position
 		position.x += buff_offset
 		
-		draw_texture(applied_buffs[key].icon, position)
+		var buff = applied_buffs[key]
+		draw_texture(buff.icon, position)
+		if buff.stack != -1:
+			draw_string(font, position + Vector2(5, 10), str(buff.stack))
 		
 		buff_offset += 10
 			
