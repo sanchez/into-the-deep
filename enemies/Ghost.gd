@@ -28,7 +28,7 @@ func get_new_random_location():
 	var new_target = search_vect + global_position
 	last_target = new_target
 	
-func attack(target):
+func attack(_target):
 	Particles2D.restart()
 	Particles2D.emitting = true
 	

@@ -21,8 +21,8 @@ func move_towards(target: Vector2, delta: float):
 	rotation = inputVector.angle() + (PI / 2)
 	motion = move_and_slide(new_motion)
 
-func think(delta: float, level: BaseWorld):
+func think(_delta: float, _level: BaseWorld):
 	pass
 
-func take_damage(damage: Damage):
+func take_damage(_damage: Damage):
 	pass

@@ -56,7 +56,7 @@ func _process(delta):
 	draw_health()
 	
 func _draw():
-	var font = Utils.font(2)
+	var font = Utils.font(4)
 	
 	var buff_offset = 0
 	for key in applied_buffs:
@@ -68,7 +68,7 @@ func _draw():
 		
 		var buff = applied_buffs[key]
 		draw_texture(buff.icon, position)
-		if buff.stack != -1:
+		if buff.stack > 1:
 			draw_string(font, position + Vector2(5, 10), str(buff.stack))
 		
 		buff_offset += 10
