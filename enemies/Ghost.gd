@@ -2,7 +2,7 @@ extends Enemy
 
 var SEARCH_RANGE = 200
 var ATTACK_RANGE = 30
-var ATTACK_AMOUNT = 3
+var ATTACK_AMOUNT = 0
 
 onready var Attack := $Attack
 onready var HealthStatus := $HealthStatus
