@@ -5,10 +5,10 @@ export (float) var INITIAL_LIFETIME = 1.0
 
 var lifetime: float
 
-func on_apply(buff, health):
+func on_apply(_buff, _health):
 	lifetime = INITIAL_LIFETIME
 	
-func on_tick(buff, health, delta: float):
+func on_tick(buff, _health, delta: float):
 	lifetime -= delta
 	
 	if lifetime <= 0:

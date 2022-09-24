@@ -22,6 +22,8 @@ func set_health(value):
 	health = value
 	if health <= 0:
 		emit_signal("on_death")
+		for key in applied_buffs:
+			applied_buffs[key].on_remove(self)
 	
 func get_buff(key: String):
 	if applied_buffs.has(key):
@@ -29,12 +31,13 @@ func get_buff(key: String):
 	return null
 	
 func add_buff(buff: Buff):
-	applied_buffs[buff.key] = buff
+	applied_buffs[buff.KEY] = buff
 	buff.attach(self)
 	update()
 	
 func remove_buff(buff: Buff):
-	applied_buffs.erase(buff.key)
+	buff.on_remove(self)
+	applied_buffs.erase(buff.KEY)
 	update()
 	
 func on_hit(damage: Damage):
@@ -49,8 +52,8 @@ func on_hit(damage: Damage):
 	
 	for x in damage.buffs:
 		if x is Buff:
-			if applied_buffs.has(x.key):
-				applied_buffs[x.key].on_apply(self)
+			if applied_buffs.has(x.KEY):
+				applied_buffs[x.KEY].on_apply(self)
 			else:
 				x.on_apply(self)
 				add_buff(x)
@@ -75,7 +78,7 @@ func _draw():
 		position.x += buff_offset
 		
 		var buff = applied_buffs[key]
-		draw_texture(buff.icon, position)
+		draw_texture(buff.ICON, position)
 		if buff.stack > 1:
 			draw_string(font, position + Vector2(5, 10), str(buff.stack))
 		

@@ -38,10 +38,7 @@ func process_attack(world: BaseWorld):
 	if closest_player != null:
 		var dist = (closest_player.global_position - get_position()).length()
 		if dist < ATTACK_RANGE:
-			var slowedBuff = BuffSlowed.new()
-			var shatteredBuff = BuffShattered.new()
-			var damage = Damage.new(ATTACK_AMOUNT, [slowedBuff, shatteredBuff])
-			Attack.attack(closest_player, damage)
+			Attack.attack(closest_player)
 
 func think(delta: float, world: BaseWorld):
 	process_attack(world)
