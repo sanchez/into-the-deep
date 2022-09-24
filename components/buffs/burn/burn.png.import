@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/burn.png-c48965c1e4c9d7f9dca9109b7290527c.stex"
+path="res://.import/burn.png-95466ca92f8fd358018a6169d25e2146.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/buffs/burn.png"
-dest_files=[ "res://.import/burn.png-c48965c1e4c9d7f9dca9109b7290527c.stex" ]
+source_file="res://components/buffs/burn/burn.png"
+dest_files=[ "res://.import/burn.png-95466ca92f8fd358018a6169d25e2146.stex" ]
 
 [params]
 

@@ -1,4 +1,5 @@
 extends BuffAttribute
+class_name BALifetime
 
 export (float) var INITIAL_LIFETIME = 1.0
 

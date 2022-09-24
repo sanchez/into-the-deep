@@ -1,4 +1,5 @@
 extends BuffAttribute
+class_name BADamageModifier
 
 export (float) var MODIFIER = 0.2
 

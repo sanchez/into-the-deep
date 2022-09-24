@@ -1,4 +1,5 @@
 extends BuffAttribute
+class_name BADamageOnTick
 
 export (float) var DAMAGE_PER_SECOND = 5.0
 
