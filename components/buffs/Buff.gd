@@ -4,7 +4,7 @@ class_name Buff
 export (String) var KEY
 export (Texture) var ICON = preload("res://components/buffs/default.png")
 export (bool) var IS_DEBUFF = false
-export (Array, Resource) var ATTRIBUTES = []
+export (Dictionary) var ATTRIBUTES = {}
 
 var stack: int = 1 setget set_stack
 
