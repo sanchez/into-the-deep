@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://components/items/weapons/swords.gd" type="Script" id=1]
+[ext_resource path="res://components/items/weapons/swords.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ICON = ExtResource( 2 )
+DAMAGE = 3
+BUFFS = [  ]

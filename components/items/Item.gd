@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 class_name Item
 
-var icon: Texture = null
+export (Texture) var ICON = null
