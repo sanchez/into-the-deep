@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-DAMAGE_PER_SECOND = 10.0
+DAMAGE_PER_SECOND = 5.0

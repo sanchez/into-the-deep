@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-INITIAL_LIFETIME = 0.5
+INITIAL_LIFETIME = 1.0

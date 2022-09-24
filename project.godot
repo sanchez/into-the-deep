@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "BuffAttribute",
+"class": "BAChanceToApply",
+"language": "GDScript",
+"path": "res://components/buffs/attributes/ChanceToApply.gd"
+}, {
+"base": "BAChanceToApply",
+"class": "BAChanceToApplyPerStack",
+"language": "GDScript",
+"path": "res://components/buffs/attributes/ChanceToApplyPerStack.gd"
+}, {
+"base": "BuffAttribute",
 "class": "BADamageModifier",
 "language": "GDScript",
 "path": "res://components/buffs/attributes/DamageModifier.gd"
@@ -48,11 +58,6 @@ _global_script_classes=[ {
 "class": "BuffAttribute",
 "language": "GDScript",
 "path": "res://components/buffs/BuffAttribute.gd"
-}, {
-"base": "Buff",
-"class": "BuffBurn",
-"language": "GDScript",
-"path": "res://components/buffs/burn.gd"
 }, {
 "base": "Buff",
 "class": "BuffPoison",
@@ -105,6 +110,8 @@ _global_script_classes=[ {
 "path": "res://components/items/weapons/swords.gd"
 } ]
 _global_script_class_icons={
+"BAChanceToApply": "",
+"BAChanceToApplyPerStack": "",
 "BADamageModifier": "",
 "BADamageOnTick": "",
 "BALifetime": "",
@@ -113,7 +120,6 @@ _global_script_class_icons={
 "BaseWorld": "",
 "Buff": "",
 "BuffAttribute": "",
-"BuffBurn": "",
 "BuffPoison": "",
 "BuffShattered": "",
 "BuffSlowed": "",
