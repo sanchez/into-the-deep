@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=2]
-
-[ext_resource path="res://components/buffs/attributes/MovementModifier.gd" type="Script" id=1]
-
-[resource]
-script = ExtResource( 1 )
-ACCELERATION_MODIFIER = 0.8
-MAX_SPEED_MODIFIER = 0.5

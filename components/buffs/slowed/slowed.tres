@@ -1,10 +1,23 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://components/buffs/Buff.gd" type="Script" id=1]
 [ext_resource path="res://components/buffs/slowed/slowed.png" type="Texture" id=2]
-[ext_resource path="res://components/buffs/attributes/Lifetime.tres" type="Resource" id=3]
-[ext_resource path="res://components/buffs/attributes/MovementModifier.tres" type="Resource" id=4]
-[ext_resource path="res://components/buffs/attributes/StackOnApply.tres" type="Resource" id=5]
+[ext_resource path="res://components/buffs/attributes/MovementModifier.gd" type="Script" id=3]
+[ext_resource path="res://components/buffs/attributes/Lifetime.gd" type="Script" id=4]
+[ext_resource path="res://components/buffs/attributes/StackOnApply.gd" type="Script" id=5]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 5 )
+MAX_STACK = -1
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+INITIAL_LIFETIME = 1.0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+ACCELERATION_MODIFIER = 0.8
+MAX_SPEED_MODIFIER = 0.5
 
 [resource]
 script = ExtResource( 1 )
@@ -12,7 +25,7 @@ KEY = "Slowed"
 ICON = ExtResource( 2 )
 IS_DEBUFF = true
 ATTRIBUTES = {
-0: ExtResource( 5 ),
-1: ExtResource( 3 ),
-2: ExtResource( 4 )
+0: SubResource( 4 ),
+1: SubResource( 2 ),
+2: SubResource( 3 )
 }

@@ -47,6 +47,7 @@ texture = ExtResource( 1 )
 
 [node name="Attack" parent="." instance=ExtResource( 3 )]
 COOLDOWN = 3000
+ATTACK_AMOUNT = 0.0
 BUFFS = [ ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="HealthStatus" parent="." instance=ExtResource( 4 )]
