@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bleed.png-6b3e01c20a0b086377793966c346e5a2.stex"
+path="res://.import/bleed.png-3c7151cbad44870a8fb726e794fa90ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/buffs/bleed.png"
-dest_files=[ "res://.import/bleed.png-6b3e01c20a0b086377793966c346e5a2.stex" ]
+source_file="res://components/buffs/bleed/bleed.png"
+dest_files=[ "res://.import/bleed.png-3c7151cbad44870a8fb726e794fa90ab.stex" ]
 
 [params]
 

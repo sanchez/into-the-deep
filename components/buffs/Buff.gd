@@ -1,12 +1,14 @@
+extends Resource
 class_name Buff
 
-var key = "Base"
+export (String) var KEY
+export (Texture) var ICON = preload("res://components/buffs/default.png")
+export (bool) var IS_DEBUFF = false
+export (Array, Resource) var ATTRIBUTES = []
+
 var stack: int = 1 setget set_stack
-var is_debuff = true
 
 var attached_healths = []
-
-var icon: Texture = load("res://components/buffs/default.png")
 
 func attach(health):
 	attached_healths.append(health)
