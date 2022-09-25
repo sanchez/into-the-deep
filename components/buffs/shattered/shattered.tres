@@ -15,15 +15,11 @@ INITIAL_LIFETIME = 1.0
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 5 )
-MODIFIER = 0.5
+MODIFIER = 0.2
 
 [resource]
 script = ExtResource( 1 )
 KEY = "Shattered"
 ICON = ExtResource( 2 )
 IS_DEBUFF = true
-ATTRIBUTES = {
-0: SubResource( 1 ),
-1: SubResource( 2 ),
-2: SubResource( 3 )
-}
+ATTRIBUTES = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]

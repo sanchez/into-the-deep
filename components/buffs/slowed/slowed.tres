@@ -6,7 +6,7 @@
 [ext_resource path="res://components/buffs/attributes/Lifetime.gd" type="Script" id=4]
 [ext_resource path="res://components/buffs/attributes/StackOnApply.gd" type="Script" id=5]
 
-[sub_resource type="Resource" id=4]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
 MAX_STACK = -1
 
@@ -24,8 +24,4 @@ script = ExtResource( 1 )
 KEY = "Slowed"
 ICON = ExtResource( 2 )
 IS_DEBUFF = true
-ATTRIBUTES = {
-0: SubResource( 4 ),
-1: SubResource( 2 ),
-2: SubResource( 3 )
-}
+ATTRIBUTES = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]

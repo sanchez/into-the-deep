@@ -4,7 +4,7 @@ class_name Buff
 export (String) var KEY
 export (Texture) var ICON = preload("res://components/buffs/default.png")
 export (bool) var IS_DEBUFF = true
-export (Dictionary) var ATTRIBUTES = {}
+export (Array, Resource) var ATTRIBUTES
 
 var stack: int = 1 setget set_stack
 
@@ -23,17 +23,17 @@ func set_stack(value):
 			x.update()
 
 func on_apply(health):
-	for key in ATTRIBUTES:
-		ATTRIBUTES[key].on_apply(self, health)
+	for x in ATTRIBUTES:
+		x.on_apply(self, health)
 		
 func on_remove(health):
-	for key in ATTRIBUTES:
-		ATTRIBUTES[key].on_remove(self, health)
+	for x in ATTRIBUTES:
+		x.on_remove(self, health)
 	
 func on_damage(health, damage):
-	for key in ATTRIBUTES:
-		ATTRIBUTES[key].on_damage(self, health, damage)
+	for x in ATTRIBUTES:
+		x.on_damage(self, health, damage)
 	
 func on_tick(health, delta: float):
-	for key in ATTRIBUTES:
-		ATTRIBUTES[key].on_tick(self, health, delta)
+	for x in ATTRIBUTES:
+		x.on_tick(self, health, delta)
