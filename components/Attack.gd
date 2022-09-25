@@ -3,8 +3,7 @@ extends Node
 signal on_attack(target)
 
 export (int) var COOLDOWN = 1000
-export (float) var ATTACK_AMOUNT = 3.0
-export (Array, Resource) var BUFFS
+export (Resource) var DAMAGE_DEFINITION
 
 onready var Timer := $Timer
 
@@ -17,7 +16,7 @@ func can_attack():
 
 func attack(target: Node2D):
 	if can_attack():
-		var damage = Damage.new(ATTACK_AMOUNT, BUFFS)
+		var damage = DAMAGE_DEFINITION.get_damage()
 		
 		# do the attack here
 		for x in target.get_children():
