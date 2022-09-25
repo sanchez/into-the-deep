@@ -112,7 +112,7 @@ _global_script_classes=[ {
 "base": "Weapon",
 "class": "WeaponSwords",
 "language": "GDScript",
-"path": "res://components/items/weapons/swords.gd"
+"path": "res://components/items/weapons/swords/swords.gd"
 } ]
 _global_script_class_icons={
 "BAChanceToApply": "",
