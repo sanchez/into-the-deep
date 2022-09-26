@@ -16,6 +16,10 @@ func attach(health):
 func set_stack(value):
 	stack = value
 	
+	for x in ATTRIBUTES:
+		for health in attached_healths:
+			x.on_stack_changed(self, health)
+	
 	for x in attached_healths:
 		if stack <= 0:
 			x.remove_buff(self)
@@ -33,6 +37,18 @@ func on_remove(health):
 func on_damage(health, damage):
 	for x in ATTRIBUTES:
 		x.on_damage(self, health, damage)
+		
+func on_attack(health):
+	for x in ATTRIBUTES:
+		if not x.on_attack(self, health):
+			return false
+	return true
+	
+func on_ability():
+	for x in ATTRIBUTES:
+		if not x.on_ability(self):
+			return false
+	return true
 	
 func on_tick(health, delta: float):
 	for x in ATTRIBUTES:

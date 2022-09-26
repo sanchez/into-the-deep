@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "BuffAttribute",
+"class": "BACancelAbility",
+"language": "GDScript",
+"path": "res://components/buffs/attributes/CancelAbility.gd"
+}, {
+"base": "BuffAttribute",
+"class": "BACancelAttack",
+"language": "GDScript",
+"path": "res://components/buffs/attributes/CancelAttack.gd"
+}, {
+"base": "BuffAttribute",
 "class": "BAChanceToApply",
 "language": "GDScript",
 "path": "res://components/buffs/attributes/ChanceToApply.gd"
@@ -20,9 +30,9 @@ _global_script_classes=[ {
 "path": "res://components/buffs/attributes/ChanceToApplyPerStack.gd"
 }, {
 "base": "BuffAttribute",
-"class": "BADamageModifier",
+"class": "BADamageModifierPerStack",
 "language": "GDScript",
-"path": "res://components/buffs/attributes/DamageModifier.gd"
+"path": "res://components/buffs/attributes/DamageModifierPerStack.gd"
 }, {
 "base": "BuffAttribute",
 "class": "BADamageOnTick",
@@ -38,6 +48,11 @@ _global_script_classes=[ {
 "class": "BAMovementModifier",
 "language": "GDScript",
 "path": "res://components/buffs/attributes/MovementModifier.gd"
+}, {
+"base": "BuffAttribute",
+"class": "BAMovementModifierPerStack",
+"language": "GDScript",
+"path": "res://components/buffs/attributes/MovementModifierPerStack.gd"
 }, {
 "base": "BuffAttribute",
 "class": "BASingleStack",
@@ -115,12 +130,15 @@ _global_script_classes=[ {
 "path": "res://components/items/weapons/swords/swords.gd"
 } ]
 _global_script_class_icons={
+"BACancelAbility": "",
+"BACancelAttack": "",
 "BAChanceToApply": "",
 "BAChanceToApplyPerStack": "",
-"BADamageModifier": "",
+"BADamageModifierPerStack": "",
 "BADamageOnTick": "",
 "BALifetime": "",
 "BAMovementModifier": "",
+"BAMovementModifierPerStack": "",
 "BASingleStack": "",
 "BAStackOnApply": "",
 "BaseWorld": "",

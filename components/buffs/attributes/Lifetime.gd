@@ -11,6 +11,6 @@ func on_apply(_buff, _health):
 func on_tick(buff, _health, delta: float):
 	lifetime -= delta
 	
-	if lifetime <= 0:
+	while lifetime <= 0:
 		buff.stack -= 1
-		lifetime = INITIAL_LIFETIME
+		lifetime += INITIAL_LIFETIME

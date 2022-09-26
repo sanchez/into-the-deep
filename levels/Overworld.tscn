@@ -12,9 +12,3 @@ position = Vector2( 54, 41 )
 
 [node name="Ghost" parent="." instance=ExtResource( 2 )]
 position = Vector2( 462, 210 )
-
-[node name="Ghost3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 589, 275 )
-
-[node name="Ghost2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 529, 102 )

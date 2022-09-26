@@ -8,7 +8,7 @@ var been_applied = false
 var slowed_accel_amount = 0
 var slowed_max_speed_amount = 0
 
-func on_apply(buff, health):
+func on_apply(_buff, health):
 	if been_applied == false:
 		been_applied = true
 		
@@ -19,7 +19,7 @@ func on_apply(buff, health):
 		slowed_max_speed_amount = health.owner.MAX_SPEED * MAX_SPEED_MODIFIER
 		health.owner.MAX_SPEED -= slowed_max_speed_amount
 	
-func on_remove(buff, health):
+func on_remove(_buff, health):
 	if been_applied:
 		# we just got removed so we need to undo our thing
 		health.owner.ACCELERATION += slowed_accel_amount
