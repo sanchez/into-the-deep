@@ -24,8 +24,9 @@ script = ExtResource( 6 )
 
 [sub_resource type="Resource" id=5]
 script = ExtResource( 7 )
-ACCELERATION_MODIFIER = 0.8
-MAX_SPEED_MODIFIER = 0.5
+ACCELERATION_MODIFIER = 1.0
+MAX_SPEED_MODIFIER = 1.0
+MAX_STACKS = 100
 
 [resource]
 script = ExtResource( 2 )
