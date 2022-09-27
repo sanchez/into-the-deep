@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bleedsword.png-7ef1a01cebe50dce843a40cd711b3fd7.stex"
+path="res://.import/bleedsword.png-cb32821436cf80eeea372eadc676cc89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/items/weapons/swords/bleedsword.png"
-dest_files=[ "res://.import/bleedsword.png-7ef1a01cebe50dce843a40cd711b3fd7.stex" ]
+source_file="res://components/items/weapons/swords/bleedsword/bleedsword.png"
+dest_files=[ "res://.import/bleedsword.png-cb32821436cf80eeea372eadc676cc89.stex" ]
 
 [params]
 
