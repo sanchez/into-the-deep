@@ -10,3 +10,5 @@ func get_icon() -> Texture:
 
 func _ready():
 	sprite.texture = get_icon()
+	sprite.scale.x = ITEM.ICON_SCALE
+	sprite.scale.y = ITEM.ICON_SCALE
