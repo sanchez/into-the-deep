@@ -1,4 +1,5 @@
 extends Area2D
+class_name Inventory
 
 var equipped_weapon: Weapon = null
 var equipped_artifacts = []

@@ -119,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/HealthStatus.gd"
 }, {
+"base": "Area2D",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://components/inventory/Inventory.gd"
+}, {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
@@ -162,6 +167,7 @@ _global_script_class_icons={
 "DroppedItem": "",
 "Enemy": "",
 "HealthStatus": "",
+"Inventory": "",
 "Item": "",
 "Player": "",
 "Weapon": "",
