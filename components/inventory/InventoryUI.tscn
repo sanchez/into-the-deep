@@ -7,24 +7,18 @@
 [node name="InventoryUI" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 10.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_right = 118.0
-margin_bottom = 24.0
-
-[node name="Background" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-margin_right = 24.0
-margin_bottom = 24.0
+margin_right = 34.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 24, 24 )
 texture = ExtResource( 2 )
 expand = true
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/Background"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Background"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -34,7 +28,7 @@ margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 
-[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Background/CenterContainer"]
+[node name="WeaponIcon" type="TextureRect" parent="CanvasLayer/Background/CenterContainer"]
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 28.0
@@ -43,10 +37,13 @@ rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="Artifacts" type="NinePatchRect" parent="MarginContainer/HBoxContainer"]
-margin_left = 28.0
-margin_right = 114.0
-margin_bottom = 24.0
+[node name="Artifacts" type="NinePatchRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -43.0
+margin_top = 7.0
+margin_right = 43.0
+margin_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 86, 12 )
@@ -56,68 +53,90 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Artifacts"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Artifacts"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
-margin_right = 5.0
+margin_top = 5.0
+margin_right = -5.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer"]
-margin_right = 86.0
-margin_bottom = 24.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Artifacts/MarginContainer"]
+margin_right = 76.0
+margin_bottom = 17.0
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer"]
 margin_right = 16.0
-margin_bottom = 24.0
+margin_bottom = 17.0
 
-[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer/CenterContainer"]
-margin_top = 4.0
+[node name="Artifact1" type="TextureRect" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer/CenterContainer"]
 margin_right = 16.0
-margin_bottom = 20.0
+margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer"]
 margin_left = 20.0
 margin_right = 36.0
-margin_bottom = 24.0
+margin_bottom = 17.0
 
-[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer/CenterContainer2"]
-margin_top = 4.0
+[node name="Artifact2" type="TextureRect" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer/CenterContainer2"]
 margin_right = 16.0
-margin_bottom = 20.0
+margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer"]
+[node name="CenterContainer3" type="CenterContainer" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer"]
 margin_left = 40.0
 margin_right = 56.0
-margin_bottom = 24.0
+margin_bottom = 17.0
 
-[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer/CenterContainer3"]
-margin_top = 4.0
+[node name="Artifact3" type="TextureRect" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer/CenterContainer3"]
 margin_right = 16.0
-margin_bottom = 20.0
+margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="CenterContainer4" type="CenterContainer" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer"]
+[node name="CenterContainer4" type="CenterContainer" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer"]
 margin_left = 60.0
 margin_right = 76.0
-margin_bottom = 24.0
+margin_bottom = 17.0
 
-[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Artifacts/MarginContainer/HBoxContainer/CenterContainer4"]
-margin_top = 4.0
+[node name="Artifact4" type="TextureRect" parent="CanvasLayer/Artifacts/MarginContainer/HBoxContainer/CenterContainer4"]
 margin_right = 16.0
-margin_bottom = 20.0
+margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="Currency" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 118.0
-margin_right = 118.0
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -34.0
+margin_top = 10.0
+margin_right = -10.0
 margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="AbilityIcon" type="TextureRect" parent="CanvasLayer/TextureRect/CenterContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 28.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 3 )
+expand = true
