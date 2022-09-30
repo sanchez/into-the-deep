@@ -17,6 +17,12 @@ func _ready():
 	crystals = Currency.new()
 	for x in range(0, MAX_SPARE_SLOTS):
 		spare_slots.append(null)
+		
+func get_weapon():
+	return equipped_weapon
+	
+func get_artifacts():
+	return equipped_artifacts
 
 func check_pickup():
 	return Input.is_action_pressed("interact")
@@ -27,23 +33,35 @@ func get_intersecting_item() -> DroppedItem:
 			return x
 	return null
 	
-# TODO: What need to do some sort of balancing thing here
-func get_existing_stack(item: Item):
-	if item.MAX_STACK == 1:
-		return null
+func try_place_item(item: Item) -> bool:
+	if item is Currency:
+		# TODO: put currency in thingy
+		return true
+	
+	if item is Weapon and not is_instance_valid(equipped_weapon):
+		equipped_weapon = item
+		return true
+		
+	# try to fit the item in with existing stacks
 	for x in spare_slots:
 		if not is_instance_valid(x):
 			continue
 		if x.KEY == item.KEY:
 			if x.stack_count < x.MAX_STACK:
-				return x
-	return null
+				var diff = min(x.MAX_STACK - x.stack_count, item.stack_count)
+				x.stack_count += diff
+				item.stack_count -= diff
+				
+	if item.stack_count <= 0:
+		return true
+		
+	# find an empty slot and assign it
+	for x in range(0, spare_slots.size()):
+		if not is_instance_valid(spare_slots[x]):
+			spare_slots[x] = item
+			return true
 	
-func get_spare_slot_index():
-	for x in range(0, MAX_SPARE_SLOTS):
-		if spare_slots[x] == null:
-			return x
-	return -1
+	return false
 	
 func process_currency_pickup(item: Currency):
 	match item.KEY:
@@ -54,19 +72,9 @@ func process_currency_pickup(item: Currency):
 	
 func process_item_pickup():
 	var item = get_intersecting_item()
-	if item != null:
-		if item is Currency:
-			process_currency_pickup(item)
+	if is_instance_valid(item):
+		if try_place_item(item.ITEM):
 			item.queue_free()
-			return
-		var existing_stack = get_existing_stack(item.ITEM)
-		if existing_stack == null:
-			var new_index = get_spare_slot_index()
-			spare_slots[new_index] = item
-		else:
-			existing_stack.stack += item.stack_count
-			
-		item.queue_free()
 		
 func process_inventory_manage():
 	if Input.is_action_just_pressed("inventory"):

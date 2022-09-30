@@ -5,6 +5,9 @@
 
 [resource]
 script = ExtResource( 1 )
+KEY = ""
 ICON = ExtResource( 2 )
+MAX_STACK = -1
+ICON_SCALE = 0.5
 DAMAGE = 15
 BUFFS = [  ]
