@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://components/inventory/InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://components/inventory/inventory-panel.png" type="Texture" id=2]
 [ext_resource path="res://components/items/weapons/swords/swords.png" type="Texture" id=3]
+[ext_resource path="res://components/items/currency/crystal/crystal.png" type="Texture" id=4]
+[ext_resource path="res://components/items/currency/coin/coin.png" type="Texture" id=5]
 
 [node name="InventoryUI" type="Node2D"]
 script = ExtResource( 1 )
@@ -111,32 +113,45 @@ rect_min_size = Vector2( 16, 16 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -34.0
+margin_left = -80.0
 margin_top = 10.0
 margin_right = -10.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 24, 24 )
-texture = ExtResource( 2 )
-expand = true
+margin_bottom = 40.0
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TextureRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_right = 70.0
+margin_bottom = 14.0
 
-[node name="AbilityIcon" type="TextureRect" parent="CanvasLayer/TextureRect/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 5 )
+
+[node name="Coins" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 margin_left = 12.0
-margin_top = 12.0
-margin_right = 28.0
-margin_bottom = 28.0
-rect_min_size = Vector2( 16, 16 )
-texture = ExtResource( 3 )
-expand = true
+margin_right = 36.0
+margin_bottom = 14.0
+text = "000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 70.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+margin_right = 8.0
+margin_bottom = 14.0
+texture = ExtResource( 4 )
+
+[node name="Crystal" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+margin_left = 12.0
+margin_right = 36.0
+margin_bottom = 14.0
+text = "000"
+
+[node name="InventoryPicker" type="CanvasLayer" parent="."]

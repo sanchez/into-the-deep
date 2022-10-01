@@ -14,7 +14,11 @@ export (bool) var CAN_SHOW = false
 
 func _ready():
 	coins = Currency.new()
+	coins.AMOUNT = 0
+	
 	crystals = Currency.new()
+	crystals.AMOUNT = 0
+	
 	for x in range(0, MAX_SPARE_SLOTS):
 		spare_slots.append(null)
 		
@@ -23,6 +27,12 @@ func get_weapon():
 	
 func get_artifacts():
 	return equipped_artifacts
+	
+func get_coins():
+	return coins.AMOUNT
+	
+func get_crystals():
+	return crystals.AMOUNT
 
 func check_pickup():
 	return Input.is_action_pressed("interact")
@@ -35,8 +45,13 @@ func get_intersecting_item() -> DroppedItem:
 	
 func try_place_item(item: Item) -> bool:
 	if item is Currency:
-		# TODO: put currency in thingy
-		return true
+		if item.KEY == "Crystal":
+			crystals.AMOUNT += item.AMOUNT
+			return true
+		if item.KEY == "Coin":
+			coins.AMOUNT += item.AMOUNT
+			return true
+		return false
 	
 	if item is Weapon and not is_instance_valid(equipped_weapon):
 		equipped_weapon = item
