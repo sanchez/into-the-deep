@@ -7,8 +7,11 @@ export (float) var FRICTION = 7.0
 var motion := Vector2.ZERO
 
 onready var HealthStatus := $HealthStatus
+onready var Inventory := $Inventory
 
 func _physics_process(delta):
+	process_attack()
+	
 	var inputVector = get_input()
 	motion = apply_motion(inputVector, delta)
 	motion = apply_friction(inputVector)
@@ -16,6 +19,10 @@ func _physics_process(delta):
 	apply_rotation(inputVector)
 	
 	move()
+	
+func process_attack():
+	if Input.is_action_just_pressed("attack"):
+		Inventory.attack()
 	
 func apply_rotation(inputVector: Vector2):
 	if inputVector.length_squared() > 0:

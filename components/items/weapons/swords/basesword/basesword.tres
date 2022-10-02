@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://components/items/weapons/Weapon.gd" type="Script" id=1]
+[ext_resource path="res://components/items/traits/DamageMelee.gd" type="Script" id=2]
+[ext_resource path="res://components/damage/DamageDefinition.gd" type="Script" id=3]
+[ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=4]
+[ext_resource path="res://components/items/traits/CooldownTrait.gd" type="Script" id=5]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 5 )
+COOLDOWN = 1.0
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+BASE_ATTACK = 10.0
+BUFFS = [  ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+DAMAGE = SubResource( 2 )
+
+[resource]
+script = ExtResource( 1 )
+KEY = "Sword"
+ICON = ExtResource( 4 )
+TRAITS = [ SubResource( 1 ), SubResource( 3 ) ]
+MAX_STACK = 1
+ICON_SCALE = 0.5

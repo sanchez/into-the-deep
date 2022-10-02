@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Item",
+"class": "Artifact",
+"language": "GDScript",
+"path": "res://components/items/artifacts/artifact.gd"
+}, {
 "base": "BuffAttribute",
 "class": "BACancelAbility",
 "language": "GDScript",
@@ -119,6 +124,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/HealthStatus.gd"
 }, {
+"base": "ItemTrait",
+"class": "ITBaseDamageTrait",
+"language": "GDScript",
+"path": "res://components/items/traits/BaseDamageTrait.gd"
+}, {
+"base": "ItemTrait",
+"class": "ITCooldown",
+"language": "GDScript",
+"path": "res://components/items/traits/CooldownTrait.gd"
+}, {
+"base": "ITBaseDamageTrait",
+"class": "ITDamageMelee",
+"language": "GDScript",
+"path": "res://components/items/traits/DamageMelee.gd"
+}, {
 "base": "Area2D",
 "class": "Inventory",
 "language": "GDScript",
@@ -129,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/items/Item.gd"
 }, {
+"base": "Resource",
+"class": "ItemTrait",
+"language": "GDScript",
+"path": "res://components/items/ItemTrait.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -137,14 +162,10 @@ _global_script_classes=[ {
 "base": "Item",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://components/items/weapons/weapon.gd"
-}, {
-"base": "Weapon",
-"class": "WeaponSwords",
-"language": "GDScript",
-"path": "res://components/items/weapons/swords/swords.gd"
+"path": "res://components/items/weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
+"Artifact": "",
 "BACancelAbility": "",
 "BACancelAttack": "",
 "BAChanceToApply": "",
@@ -167,11 +188,14 @@ _global_script_class_icons={
 "DroppedItem": "",
 "Enemy": "",
 "HealthStatus": "",
+"ITBaseDamageTrait": "",
+"ITCooldown": "",
+"ITDamageMelee": "",
 "Inventory": "",
 "Item": "",
+"ItemTrait": "",
 "Player": "",
-"Weapon": "",
-"WeaponSwords": ""
+"Weapon": ""
 }
 
 [application]
@@ -291,6 +315,11 @@ interact={
 inventory={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+attack={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 

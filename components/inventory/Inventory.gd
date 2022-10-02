@@ -11,6 +11,7 @@ var crystals: Currency
 export (int) var MAX_ARTIFACT_SLOTS = 6
 export (int) var MAX_SPARE_SLOTS = 16
 export (bool) var CAN_SHOW = false
+export (bool) var CAN_PICKUP = false
 
 func _ready():
 	coins = Currency.new()
@@ -33,9 +34,14 @@ func get_coins():
 	
 func get_crystals():
 	return crystals.AMOUNT
-
-func check_pickup():
-	return Input.is_action_pressed("interact")
+	
+func attack():
+	var weapon = get_weapon()
+	if not is_instance_valid(weapon):
+		return
+		
+	if weapon.is_active(self.owner):
+		weapon.on_trigger(self.owner)
 	
 func get_intersecting_item() -> DroppedItem:
 	for x in get_overlapping_areas():
@@ -94,7 +100,16 @@ func process_item_pickup():
 func process_inventory_manage():
 	if Input.is_action_just_pressed("inventory"):
 		print("Inventory")
+		
+func process_inventory(delta: float):
+	if is_instance_valid(equipped_weapon):
+		equipped_weapon.on_tick(self.owner, delta)
+	for x in equipped_artifacts:
+		if is_instance_valid(x):
+			x.on_tick(self.owner, delta)
 
 func _process(delta):
-	process_item_pickup()
-	process_inventory_manage()
+	if CAN_PICKUP:
+		process_item_pickup()
+	if CAN_SHOW:
+		process_inventory_manage()

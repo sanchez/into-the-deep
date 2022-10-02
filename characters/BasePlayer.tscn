@@ -23,6 +23,14 @@ position = Vector2( 0, 16 )
 [node name="Inventory" parent="." instance=ExtResource( 5 )]
 collision_layer = 2
 collision_mask = 8
+CAN_SHOW = true
+CAN_PICKUP = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory"]
 shape = ExtResource( 4 )
+
+[node name="Melee" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -30 )
+collision_mask = 4
+collide_with_areas = true
