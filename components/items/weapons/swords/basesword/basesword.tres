@@ -4,9 +4,9 @@
 [ext_resource path="res://components/items/traits/DamageMelee.gd" type="Script" id=2]
 [ext_resource path="res://components/damage/DamageDefinition.gd" type="Script" id=3]
 [ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=4]
-[ext_resource path="res://components/items/traits/CooldownTrait.gd" type="Script" id=5]
+[ext_resource path="res://components/items/traits/CooldownOnAttackTrait.gd" type="Script" id=5]
 
-[sub_resource type="Resource" id=1]
+[sub_resource type="Resource" id=4]
 script = ExtResource( 5 )
 COOLDOWN = 1.0
 
@@ -23,6 +23,6 @@ DAMAGE = SubResource( 2 )
 script = ExtResource( 1 )
 KEY = "Sword"
 ICON = ExtResource( 4 )
-TRAITS = [ SubResource( 1 ), SubResource( 3 ) ]
+TRAITS = [ SubResource( 4 ), SubResource( 3 ) ]
 MAX_STACK = 1
 ICON_SCALE = 0.5

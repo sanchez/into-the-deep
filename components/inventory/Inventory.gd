@@ -107,8 +107,16 @@ func process_inventory(delta: float):
 	for x in equipped_artifacts:
 		if is_instance_valid(x):
 			x.on_tick(self.owner, delta)
+			
+func process_tick(delta: float):
+	if is_instance_valid(equipped_weapon):
+		equipped_weapon.on_tick(owner, delta)
+	for x in equipped_artifacts:
+		if is_instance_valid(x):
+			x.on_tick(owner, delta)
 
 func _process(delta):
+	process_tick(delta)
 	if CAN_PICKUP:
 		process_item_pickup()
 	if CAN_SHOW:
