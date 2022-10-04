@@ -14,12 +14,25 @@ onready var Buffs := $Buffs
 onready var HealthBar := $HealthBar
 onready var RemainingHealth := $HealthBar/RemainingHealth
 
+const HitNumber = preload("res://components/HitNumber.tscn")
+
+func get_hit_position():
+	return owner.global_position
+	
+func add_hit_number(damage: Damage, actual_damage: float):
+	var hitNumber = HitNumber.instance()
+	hitNumber.DAMAGE_AMOUNT = actual_damage
+	add_child(hitNumber)
+	hitNumber.global_position = get_hit_position()
+
 func _ready():
 	health = MAX_HEALTH
 	position_offset = position
 	
 func set_health(value):
+	var diff = health - value
 	health = value
+	add_hit_number(null, diff)
 	if health <= 0:
 		emit_signal("on_death")
 		for key in applied_buffs:
@@ -48,6 +61,7 @@ func on_hit(damage: Damage):
 			
 	# a single hit of damage can't kill you
 	var damage_amount = clamp(damage.amount, 0, MAX_HEALTH - 1)
+	add_hit_number(damage, damage_amount)
 	set_health(health - damage_amount)
 	
 	for x in damage.buffs:
