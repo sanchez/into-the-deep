@@ -60,6 +60,11 @@ _global_script_classes=[ {
 "path": "res://components/buffs/attributes/MovementModifierPerStack.gd"
 }, {
 "base": "BuffAttribute",
+"class": "BAPooledTick",
+"language": "GDScript",
+"path": "res://components/buffs/attributes/PooledTick.gd"
+}, {
+"base": "BuffAttribute",
 "class": "BASingleStack",
 "language": "GDScript",
 "path": "res://components/buffs/attributes/SingleStack.gd"
@@ -180,6 +185,7 @@ _global_script_class_icons={
 "BALifetime": "",
 "BAMovementModifier": "",
 "BAMovementModifierPerStack": "",
+"BAPooledTick": "",
 "BASingleStack": "",
 "BAStackOnApply": "",
 "BaseWorld": "",

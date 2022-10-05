@@ -61,7 +61,7 @@ func on_hit(damage: Damage):
 			
 	# a single hit of damage can't kill you
 	var damage_amount = clamp(damage.amount, 0, MAX_HEALTH - 1)
-	add_hit_number(damage, damage_amount)
+	#add_hit_number(damage, damage_amount)
 	set_health(health - damage_amount)
 	
 	for x in damage.buffs:
