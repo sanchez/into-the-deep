@@ -1,29 +1,31 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://components/items/weapons/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://components/items/weapons/swords/bleedsword/bleedsword.png" type="Texture" id=2]
 [ext_resource path="res://components/buffs/bleed/bleed.tres" type="Resource" id=3]
-[ext_resource path="res://components/items/traits/DamageMelee.gd" type="Script" id=4]
+[ext_resource path="res://components/items/traits/PlayAttack.gd" type="Script" id=4]
 [ext_resource path="res://components/damage/DamageDefinition.gd" type="Script" id=5]
-[ext_resource path="res://components/items/traits/CooldownOnAttackTrait.gd" type="Script" id=6]
+[ext_resource path="res://components/items/traits/CooldownTrait.gd" type="Script" id=6]
+[ext_resource path="res://animations/attacks/SwordSwing.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 6 )
 COOLDOWN = 1.0
 
-[sub_resource type="Resource" id=2]
+[sub_resource type="Resource" id=5]
 script = ExtResource( 5 )
 BASE_ATTACK = 10.0
 BUFFS = [ ExtResource( 3 ) ]
 
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=6]
 script = ExtResource( 4 )
-DAMAGE = SubResource( 2 )
+ATTACK = ExtResource( 7 )
+DAMAGE = SubResource( 5 )
 
 [resource]
 script = ExtResource( 1 )
 KEY = "Bleed Sword"
 ICON = ExtResource( 2 )
-TRAITS = [ SubResource( 4 ), SubResource( 3 ) ]
+TRAITS = [ SubResource( 4 ), SubResource( 6 ) ]
 MAX_STACK = 1
 ICON_SCALE = 0.5

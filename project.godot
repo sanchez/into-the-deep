@@ -139,11 +139,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/items/traits/CooldownTrait.gd"
 }, {
-"base": "ItemTrait",
-"class": "ITCooldownOnAttack",
-"language": "GDScript",
-"path": "res://components/items/traits/CooldownOnAttackTrait.gd"
-}, {
 "base": "ITBaseDamageTrait",
 "class": "ITDamageMelee",
 "language": "GDScript",
@@ -206,7 +201,6 @@ _global_script_class_icons={
 "HealthStatus": "",
 "ITBaseDamageTrait": "",
 "ITCooldown": "",
-"ITCooldownOnAttack": "",
 "ITDamageMelee": "",
 "ITPlayAttack": "",
 "Inventory": "",
@@ -347,6 +341,7 @@ attack={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Item"
+2d_physics/layer_5="Weapon"
 
 [physics]
 

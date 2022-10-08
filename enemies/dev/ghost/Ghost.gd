@@ -59,5 +59,5 @@ func think(delta: float, world: BaseWorld):
 	
 	last_position = global_position
 
-func take_damage(damage: Damage):
-	HealthStatus.on_hit(damage)
+func _on_HealthStatus_on_death():
+	queue_free()

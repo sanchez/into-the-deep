@@ -23,6 +23,3 @@ func move_towards(target: Vector2, delta: float):
 
 func think(_delta: float, _level: BaseWorld):
 	pass
-
-func take_damage(_damage: Damage):
-	pass

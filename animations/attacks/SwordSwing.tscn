@@ -3,8 +3,8 @@
 [ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=1]
 [ext_resource path="res://animations/attacks/SwordSwing.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.90004, 20 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2.99701, 13.5027 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -52,12 +52,16 @@ tracks/1/keys = {
 
 [node name="SwordSwing" type="Area2D"]
 rotation = 0.174533
+collision_layer = 16
+collision_mask = 6
+priority = 10.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 17, -18 )
+position = Vector2( 22.28, -22.2634 )
 rotation = 0.791276
-shape = SubResource( 1 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 16, -16 )
@@ -70,3 +74,4 @@ anims/RESET = SubResource( 2 )
 anims/swing = SubResource( 3 )
 
 [connection signal="area_entered" from="." to="." method="_on_SwordSwing_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_SwordSwing_body_entered"]
