@@ -1,6 +1,5 @@
 extends Enemy
 
-var SEARCH_RANGE = 200
 var ATTACK_RANGE = 30
 var ATTACK_AMOUNT = 0
 
@@ -8,7 +7,6 @@ onready var Attack := $Attack
 onready var HealthStatus := $HealthStatus
 onready var Particles2D := $Particles2D
 
-var last_target = Vector2.ZERO
 var last_position = Vector2.ZERO
 
 func get_target(world: BaseWorld) -> Vector2:

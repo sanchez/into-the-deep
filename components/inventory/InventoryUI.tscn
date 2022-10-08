@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://components/inventory/InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://components/inventory/inventory-panel.png" type="Texture" id=2]
 [ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=3]
 [ext_resource path="res://components/items/currency/crystal/crystal.png" type="Texture" id=4]
 [ext_resource path="res://components/items/currency/coin/coin.png" type="Texture" id=5]
+[ext_resource path="res://ui/font.tres" type="DynamicFont" id=6]
 
 [node name="InventoryUI" type="Node2D"]
 script = ExtResource( 1 )
@@ -123,35 +124,37 @@ margin_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_right = 70.0
-margin_bottom = 14.0
+margin_bottom = 11.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 margin_right = 8.0
-margin_bottom = 14.0
+margin_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 5 )
 
 [node name="Coins" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 margin_left = 12.0
-margin_right = 36.0
-margin_bottom = 14.0
+margin_right = 30.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 6 )
 text = "000"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 18.0
+margin_top = 15.0
 margin_right = 70.0
-margin_bottom = 32.0
+margin_bottom = 26.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
 margin_right = 8.0
-margin_bottom = 14.0
+margin_bottom = 11.0
 texture = ExtResource( 4 )
 
 [node name="Crystal" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
 margin_left = 12.0
-margin_right = 36.0
-margin_bottom = 14.0
+margin_right = 30.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 6 )
 text = "000"
 
 [node name="InventoryPicker" type="CanvasLayer" parent="."]
