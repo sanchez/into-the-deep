@@ -12,5 +12,5 @@ func on_tick(_item, _character, delta: float):
 	if cooldown_amount < COOLDOWN:
 		cooldown_amount += delta
 
-func on_attack(_item, _character, _target, _damage):
+func on_trigger(_item, _character):
 	cooldown_amount = 0.0

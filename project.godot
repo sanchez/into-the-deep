@@ -149,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/items/traits/DamageMelee.gd"
 }, {
+"base": "ItemTrait",
+"class": "ITPlayAttack",
+"language": "GDScript",
+"path": "res://components/items/traits/PlayAttack.gd"
+}, {
 "base": "Area2D",
 "class": "Inventory",
 "language": "GDScript",
@@ -203,6 +208,7 @@ _global_script_class_icons={
 "ITCooldown": "",
 "ITCooldownOnAttack": "",
 "ITDamageMelee": "",
+"ITPlayAttack": "",
 "Inventory": "",
 "Item": "",
 "ItemTrait": "",
