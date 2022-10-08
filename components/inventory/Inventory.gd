@@ -1,8 +1,6 @@
 extends Area2D
 class_name Inventory
 
-var equipped_weapon: Weapon = null
-var equipped_artifacts = []
 var spare_slots: Array = []
 
 var coins: Currency
@@ -12,6 +10,9 @@ export (int) var MAX_ARTIFACT_SLOTS = 6
 export (int) var MAX_SPARE_SLOTS = 16
 export (bool) var CAN_SHOW = false
 export (bool) var CAN_PICKUP = false
+
+export (Resource) var EQUIPPED_WEAPON
+export (Array, Resource) var EQUIPPED_ARTIFACTS
 
 func _ready():
 	coins = Currency.new()
@@ -24,10 +25,10 @@ func _ready():
 		spare_slots.append(null)
 		
 func get_weapon():
-	return equipped_weapon
+	return EQUIPPED_WEAPON
 	
 func get_artifacts():
-	return equipped_artifacts
+	return EQUIPPED_ARTIFACTS
 	
 func get_coins():
 	return coins.AMOUNT
@@ -59,8 +60,8 @@ func try_place_item(item: Item) -> bool:
 			return true
 		return false
 	
-	if item is Weapon and not is_instance_valid(equipped_weapon):
-		equipped_weapon = item
+	if item is Weapon and not is_instance_valid(EQUIPPED_WEAPON):
+		EQUIPPED_WEAPON = item
 		return true
 		
 	# try to fit the item in with existing stacks
@@ -102,16 +103,16 @@ func process_inventory_manage():
 		print("Inventory")
 		
 func process_inventory(delta: float):
-	if is_instance_valid(equipped_weapon):
-		equipped_weapon.on_tick(self.owner, delta)
-	for x in equipped_artifacts:
+	if is_instance_valid(EQUIPPED_WEAPON):
+		EQUIPPED_WEAPON.on_tick(self.owner, delta)
+	for x in EQUIPPED_ARTIFACTS:
 		if is_instance_valid(x):
 			x.on_tick(self.owner, delta)
 			
 func process_tick(delta: float):
-	if is_instance_valid(equipped_weapon):
-		equipped_weapon.on_tick(owner, delta)
-	for x in equipped_artifacts:
+	if is_instance_valid(EQUIPPED_WEAPON):
+		EQUIPPED_WEAPON.on_tick(owner, delta)
+	for x in EQUIPPED_ARTIFACTS:
 		if is_instance_valid(x):
 			x.on_tick(owner, delta)
 

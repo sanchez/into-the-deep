@@ -7,7 +7,7 @@
 [ext_resource path="res://components/items/currency/crystal/crystal.tres" type="Resource" id=5]
 [ext_resource path="res://components/items/currency/coin/coin.tres" type="Resource" id=6]
 [ext_resource path="res://components/inventory/InventoryUI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://components/items/weapons/swords/bleedsword/bleedsword.tres" type="Resource" id=8]
+[ext_resource path="res://components/items/weapons/swords/firesword/firesword.tres" type="Resource" id=8]
 [ext_resource path="res://enemies/dev/ghost/Ghost.tscn" type="PackedScene" id=9]
 
 [node name="Overworld" type="Node2D"]
