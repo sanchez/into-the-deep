@@ -4,16 +4,14 @@ var ATTACK_RANGE = 40
 
 onready var Inventory := $Inventory
 
-func process_attack(world: BaseWorld):
+func think(delta: float, world: BaseWorld):
 	var players = world.get_players()
 	var closest_player = Utils.find_closest_node(get_position(), players)
 	if is_instance_valid(closest_player):
 		var dist = (closest_player.global_position - get_position()).length()
 		if dist < ATTACK_RANGE:
 			Inventory.attack()
-
-func think(delta: float, world: BaseWorld):
-	process_attack(world)
+			return
 	
 	var target = get_target(world)
 	move_towards(target, delta)

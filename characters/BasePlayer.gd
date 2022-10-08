@@ -21,7 +21,7 @@ func _physics_process(delta):
 	move()
 	
 func process_attack():
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		Inventory.attack()
 	
 func apply_rotation(inputVector: Vector2):
