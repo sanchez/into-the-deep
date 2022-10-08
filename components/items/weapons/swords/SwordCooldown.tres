@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-COOLDOWN = 0.5
+COOLDOWN = 0.75

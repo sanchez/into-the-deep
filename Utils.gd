@@ -3,7 +3,7 @@ extends Node
 var PIXEL_SIZE = 2
 var TILE_SIZE = 64
 
-var fontData = load("res://FFFFORWA.TTF")
+var fontData = load("res://ui/FFFFORWA.TTF")
 
 var preloaded_fonts = {
 	2: create_font(2),
@@ -32,3 +32,21 @@ func find_closest_node(point: Vector2, nodes: Array) -> Node2D:
 				best_match = x
 				
 	return best_match
+
+func smooth_to(current_value: float, target_value: float, max_step_size: float):
+	if current_value == target_value:
+		return current_value
+		
+	if current_value < target_value:
+		var next_step = current_value + max_step_size
+		if next_step > target_value:
+			return target_value
+		return next_step
+		
+	if current_value > target_value:
+		var next_step = current_value - max_step_size
+		if next_step < target_value:
+			return target_value
+		return next_step
+		
+	return target_value

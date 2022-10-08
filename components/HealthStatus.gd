@@ -2,6 +2,7 @@ extends Node2D
 class_name HealthStatus
 
 export (int) var MAX_HEALTH = 100
+export (Array, Resource) var STARTING_BUFFS
 
 signal on_death()
 
@@ -28,6 +29,14 @@ func add_hit_number(damage: Damage, actual_damage: float):
 func _ready():
 	health = MAX_HEALTH
 	position_offset = position
+	
+	for x in STARTING_BUFFS:
+		if x is Buff:
+			if applied_buffs.has(x.KEY):
+				applied_buffs[x.KEY].on_apply(self)
+			else:
+				x.on_apply(self)
+				add_buff(x)
 	
 func set_health(value):
 	var diff = health - value
