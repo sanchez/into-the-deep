@@ -54,6 +54,7 @@ columns = 6
 
 [node name="Weapon" parent="Control/ColorRect2/MarginContainer/VBoxContainer/TopRow" instance=ExtResource( 2 )]
 custom_styles/panel = SubResource( 1 )
+ONLY_WEAPON = true
 
 [node name="Space" type="Panel" parent="Control/ColorRect2/MarginContainer/VBoxContainer/TopRow"]
 margin_left = 36.0
@@ -67,3 +68,5 @@ margin_top = 52.0
 margin_right = 313.0
 margin_bottom = 52.0
 columns = 6
+
+[connection signal="gui_input" from="Control/ColorRect" to="." method="_on_ColorRect_gui_input"]
