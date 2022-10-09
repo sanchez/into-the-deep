@@ -6,12 +6,12 @@ var spare_slots: Array = []
 var coins: Currency
 var crystals: Currency
 
-export (int) var MAX_ARTIFACT_SLOTS = 6
+export (int) var MAX_ARTIFACT_SLOTS = 4
 export (int) var MAX_SPARE_SLOTS = 16
 export (bool) var CAN_SHOW = false
 export (bool) var CAN_PICKUP = false
 
-export (Resource) var EQUIPPED_WEAPON
+export (Array, Resource) var EQUIPPED_WEAPON
 export (Array, Resource) var EQUIPPED_ARTIFACTS
 
 func _ready():
@@ -21,11 +21,20 @@ func _ready():
 	crystals = Currency.new()
 	crystals.AMOUNT = 0
 	
-	for x in range(0, MAX_SPARE_SLOTS):
+	if EQUIPPED_WEAPON.size() != 1:
+		EQUIPPED_WEAPON = [null]
+		
+	var artifacts_diff = MAX_ARTIFACT_SLOTS - EQUIPPED_ARTIFACTS.size()
+	for _x in range(0, artifacts_diff):
+		EQUIPPED_ARTIFACTS.append(null)
+	
+	for _x in range(0, MAX_SPARE_SLOTS):
 		spare_slots.append(null)
 		
 func get_weapon():
-	return EQUIPPED_WEAPON
+	if EQUIPPED_WEAPON.size() == 0:
+		return null
+	return EQUIPPED_WEAPON[0]
 	
 func get_artifacts():
 	return EQUIPPED_ARTIFACTS
@@ -60,8 +69,12 @@ func try_place_item(item: Item) -> bool:
 			return true
 		return false
 	
-	if item is Weapon and not is_instance_valid(EQUIPPED_WEAPON):
-		EQUIPPED_WEAPON = item
+	if item is Weapon and EQUIPPED_WEAPON.size() <= 0:
+		EQUIPPED_WEAPON.append(item)
+		return true
+		
+	if item is Weapon and not is_instance_valid(EQUIPPED_WEAPON[0]):
+		EQUIPPED_WEAPON[0] = item
 		return true
 		
 	# try to fit the item in with existing stacks
@@ -110,8 +123,9 @@ func process_inventory(delta: float):
 			x.on_tick(self.owner, delta)
 			
 func process_tick(delta: float):
-	if is_instance_valid(EQUIPPED_WEAPON):
-		EQUIPPED_WEAPON.on_tick(owner, delta)
+	var weapon = get_weapon()
+	if is_instance_valid(weapon):
+		weapon.on_tick(owner, delta)
 	for x in EQUIPPED_ARTIFACTS:
 		if is_instance_valid(x):
 			x.on_tick(owner, delta)

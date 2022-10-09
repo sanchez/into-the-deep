@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/InvItem/inventory-panel.png" type="Texture" id=1]
+[ext_resource path="res://ui/InvItem/InvItem.gd" type="Script" id=2]
+[ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 42, 42 )
+
+[node name="InvItem" type="Panel"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -11.0
+margin_top = -11.0
+margin_right = 11.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 22, 22 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1

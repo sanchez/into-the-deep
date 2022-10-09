@@ -16,7 +16,7 @@ func is_player_in_range(world: BaseWorld):
 func think(delta: float, world: BaseWorld):
 	if is_player_in_range(world):
 		attack_charge += delta
-		if attack_charge >= 1:
+		if attack_charge >= 0.75:
 			attack_charge = 0
 			Inventory.attack()
 			

@@ -20,7 +20,7 @@ const HitNumber = preload("res://components/HitNumber.tscn")
 func get_hit_position():
 	return owner.global_position
 	
-func add_hit_number(damage: Damage, actual_damage: float):
+func add_hit_number(_damage: Damage, actual_damage: float):
 	var hitNumber = HitNumber.instance()
 	hitNumber.DAMAGE_AMOUNT = actual_damage
 	add_child(hitNumber)
