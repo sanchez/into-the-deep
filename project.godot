@@ -114,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/damage/WeightedDamage.gd"
 }, {
+"base": "Resource",
+"class": "DropPool",
+"language": "GDScript",
+"path": "res://components/items/drops/pools/DropPool.gd"
+}, {
 "base": "Area2D",
 "class": "DroppedItem",
 "language": "GDScript",
@@ -196,6 +201,7 @@ _global_script_class_icons={
 "DamageDefinition": "",
 "DamageStacked": "",
 "DamageWeighted": "",
+"DropPool": "",
 "DroppedItem": "",
 "Enemy": "",
 "HealthStatus": "",
@@ -343,6 +349,7 @@ attack={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Item"
 2d_physics/layer_5="Weapon"
+2d_physics/layer_6="Chest"
 
 [physics]
 

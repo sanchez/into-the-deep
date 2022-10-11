@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/default.png" type="Texture" id=1]
 [ext_resource path="res://characters/BasePlayer.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://components/inventory/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/InventoryPicker/InventoryPicker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/HUD/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://components/items/weapons/swords/basesword/basesword.tres" type="Resource" id=8]
 
 [node name="BasePlayer" type="KinematicBody2D"]
 collision_layer = 2
@@ -27,6 +28,7 @@ collision_layer = 2
 collision_mask = 8
 CAN_SHOW = true
 CAN_PICKUP = true
+EQUIPPED_WEAPON = [ ExtResource( 8 ) ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory"]
 shape = ExtResource( 4 )

@@ -6,6 +6,8 @@ var ACCELERATION = 300
 var MAX_SPEED = 70
 var FRICTION = 7.0
 
+var APPLY_ROTATION = true
+
 var motion := Vector2.ZERO
 
 var last_target = Vector2.ZERO

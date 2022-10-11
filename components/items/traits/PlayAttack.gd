@@ -24,4 +24,5 @@ func _handle_on_hit(target, character, item):
 	item.on_attack(character, target, damage)
 	
 	var healthStatus: HealthStatus = target.get_node("HealthStatus")
-	healthStatus.on_hit(damage)
+	if is_instance_valid(healthStatus):
+		healthStatus.on_hit(damage)

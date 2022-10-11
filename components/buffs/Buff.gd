@@ -21,6 +21,8 @@ func set_stack(value):
 			x.on_stack_changed(self, health)
 	
 	for x in attached_healths:
+		if not is_instance_valid(x):
+			continue
 		if stack <= 0:
 			x.remove_buff(self)
 		else:

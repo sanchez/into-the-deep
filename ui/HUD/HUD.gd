@@ -34,7 +34,7 @@ func _ready():
 		
 	ArtifactsNode.set_anchors_and_margins_preset(Control.PRESET_CENTER_TOP, 0, 10)
 
-func _process(delta):
+func _process(_delta):
 	var inventory = get_inventory()
 
 	CoinsLabel.text = str(inventory.get_coins())

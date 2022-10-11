@@ -5,6 +5,8 @@ export (Texture) var ICON
 signal on_hit(item)
 signal on_finish()
 
+const IS_WEAPON = true
+
 onready var Sprite := $Sprite
 
 func _ready():
