@@ -9,6 +9,8 @@ var motion := Vector2.ZERO
 onready var HealthStatus := $HealthStatus
 onready var Inventory := $Inventory
 
+export (bool) var APPLY_ROTATION = true
+
 func _physics_process(delta):
 	process_attack()
 	
@@ -25,8 +27,9 @@ func process_attack():
 		Inventory.attack()
 	
 func apply_rotation(inputVector: Vector2):
-	if inputVector.length_squared() > 0:
-		rotation = inputVector.angle() + (PI / 2)
+	if APPLY_ROTATION:
+		if inputVector.length_squared() > 0:
+			rotation = inputVector.angle() + (PI / 2)
 	
 func apply_motion(inputVector: Vector2, delta: float):
 	var newMotion = motion + (inputVector * ACCELERATION * delta)
