@@ -1,15 +1,62 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://components/inventory/InventoryUI.gd" type="Script" id=1]
 [ext_resource path="res://components/inventory/inventory-panel.png" type="Texture" id=2]
 [ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=3]
 [ext_resource path="res://components/items/currency/crystal/crystal.png" type="Texture" id=4]
 [ext_resource path="res://components/items/currency/coin/coin.png" type="Texture" id=5]
 [ext_resource path="res://ui/font.tres" type="DynamicFont" id=6]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+export (NodePath) var INVENTORY_PATH
+
+onready var CoinsLabel := $CanvasLayer/VBoxContainer/HBoxContainer/Coins
+onready var CrystalsLabel := $CanvasLayer/VBoxContainer/HBoxContainer2/Crystal
+
+func get_inventory() -> Inventory:
+	var node = get_node(INVENTORY_PATH)
+	for x in node.get_children():
+		if x is Inventory:
+			return x
+	return null
+
+func render_inventory_toolbar(inventory: Inventory):
+	#var weapon = inventory.get_weapon()
+	#if weapon == null:
+	#	WeaponIcon.hide()
+	#	WeaponIcon.texture = null
+	#else:
+	#	WeaponIcon.show()
+	#	WeaponIcon.texture = weapon.ICON
+		
+	#var artifactIcons = [Artifact1, Artifact2, Artifact3, Artifact4]
+	#for x in artifactIcons:
+	#	x.hide()
+	#var artifacts = inventory.get_artifacts()
+	#for x in range(0, min(4, artifacts.size())):
+	#	var artifact = artifacts[x]
+	#	artifactIcons[x].texture = artifact.ICON
+	#	artifactIcons[x].show()
+		
+	CoinsLabel.text = str(inventory.get_coins())
+	CrystalsLabel.text = str(inventory.get_crystals())
+	
+func _process(_delta):
+	global_position = Vector2.ZERO
+	global_rotation = 0
+	global_scale = Vector2.ONE
+	
+	var inventory = get_inventory()
+	if not is_instance_valid(inventory):
+		return
+	
+	render_inventory_toolbar(inventory)
+"
+
 [node name="InventoryUI" type="Node2D"]
 pause_mode = 2
-script = ExtResource( 1 )
+script = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -8,7 +8,6 @@ var crystals: Currency
 
 export (int) var MAX_ARTIFACT_SLOTS = 4
 export (int) var MAX_SPARE_SLOTS = 16
-export (bool) var CAN_SHOW = false
 export (bool) var CAN_PICKUP = false
 
 export (Array, Resource) var EQUIPPED_WEAPON
@@ -111,10 +110,6 @@ func process_item_pickup():
 		if try_place_item(item.ITEM):
 			item.queue_free()
 		
-func process_inventory_manage():
-	if Input.is_action_just_pressed("inventory"):
-		print("Inventory")
-		
 func process_inventory(delta: float):
 	if is_instance_valid(EQUIPPED_WEAPON):
 		EQUIPPED_WEAPON.on_tick(self.owner, delta)
@@ -134,5 +129,3 @@ func _process(delta):
 	process_tick(delta)
 	if CAN_PICKUP:
 		process_item_pickup()
-	if CAN_SHOW:
-		process_inventory_manage()

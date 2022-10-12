@@ -1,9 +1,26 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://components/items/drops/pools/DropPool.gd" type="Script" id=1]
-[ext_resource path="res://components/items/weapons/swords/bleedsword/bleedsword.tres" type="Resource" id=2]
-[ext_resource path="res://components/items/weapons/swords/firesword/firesword.tres" type="Resource" id=4]
+[ext_resource path="res://components/items/weapons/swords/firesword/firesword.tres" type="Resource" id=2]
+[ext_resource path="res://components/items/drops/pools/DropCollection.gd" type="Script" id=3]
+[ext_resource path="res://components/items/weapons/swords/bleedsword/bleedsword.tres" type="Resource" id=4]
+[ext_resource path="res://components/items/currency/coin/coin.tres" type="Resource" id=5]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+WEIGHT = 1.0
+ITEMS = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ) ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+WEIGHT = 0.2
+ITEMS = [ ExtResource( 4 ) ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+WEIGHT = 0.2
+ITEMS = [ ExtResource( 2 ) ]
 
 [resource]
 script = ExtResource( 1 )
-POSSIBLE_DROPS = [ ExtResource( 4 ), ExtResource( 2 ) ]
+POSSIBLE_DROPS = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
