@@ -50,3 +50,11 @@ func smooth_to(current_value: float, target_value: float, max_step_size: float):
 		return next_step
 		
 	return target_value
+
+func find_world(node: Node) -> BaseWorld:
+	if not is_instance_valid(node):
+		return null
+		
+	if node is BaseWorld:
+		return node as BaseWorld
+	return find_world(node.owner)

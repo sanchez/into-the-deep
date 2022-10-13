@@ -26,7 +26,6 @@ position = Vector2( 0, 16 )
 [node name="Inventory" parent="." instance=ExtResource( 5 )]
 collision_layer = 2
 collision_mask = 8
-CAN_SHOW = true
 CAN_PICKUP = true
 EQUIPPED_WEAPON = [ ExtResource( 8 ) ]
 
