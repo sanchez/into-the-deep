@@ -17,10 +17,11 @@ func get_damagable_within_radius(position: Vector2, radius: float):
 	var res = []
 	var squared_radius = radius * radius
 	
-	for x in get_children():
+	var children = get_children()
+	for x in children:
 		if is_damagable(x):
 			var dist = position.distance_squared_to(x.global_position)
-			if dist <= radius:
+			if dist <= squared_radius:
 				res.append(x)
 		
 	return res

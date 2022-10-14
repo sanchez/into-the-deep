@@ -23,7 +23,7 @@ BUFFS = [  ]
 [sub_resource type="Resource" id=4]
 script = ExtResource( 6 )
 DAMAGE = SubResource( 3 )
-RADIUS = 10.0
+RADIUS = 100.0
 ON_APPLY = false
 ON_REMOVE = true
 ON_DAMAGE = false
