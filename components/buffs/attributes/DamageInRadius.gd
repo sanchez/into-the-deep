@@ -10,6 +10,8 @@ export (bool) var ON_DAMAGE = false
 export (bool) var ON_ATTACK = false
 export (bool) var ON_TICK = false
 
+const BaseAOE := preload("res://animations/aoe/base/BaseAOE.tscn")
+
 func get_damage():
 	return DAMAGE.get_damage()
 	
@@ -17,13 +19,17 @@ func damage_in_radius(health):
 	var world = Utils.find_world(health)
 	if not is_instance_valid(world):
 		return
-	var targets = world.get_damagable_within_radius(health.global_position, RADIUS)
 	
+	var instance = BaseAOE.instance()
+	instance.connect("on_hit", self, "_handle_on_hit", [health])
+	instance.global_position = health.owner.global_position
+	world.add_child(instance)
+	
+func _handle_on_hit(target, current_health):
 	var damage = get_damage()
-	
-	for x in targets:
-		var enemy_health = x.find_node("HealthStatus")
-		enemy_health.on_hit(damage)
+	var healthStatus: HealthStatus = target.get_node("HealthStatus")
+	if is_instance_valid(healthStatus):
+		healthStatus.on_hit(damage)
 
 func on_apply(_buff, health):
 	if ON_APPLY:
