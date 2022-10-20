@@ -179,6 +179,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/items/ItemTrait.gd"
 }, {
+"base": "Resource",
+"class": "LevelDefinition",
+"language": "GDScript",
+"path": "res://levels/generator/level_definition.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -188,6 +193,11 @@ _global_script_classes=[ {
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://components/items/weapons/Weapon.gd"
+}, {
+"base": "Resource",
+"class": "WorldDefinition",
+"language": "GDScript",
+"path": "res://levels/generator/world_definition.gd"
 } ]
 _global_script_class_icons={
 "Artifact": "",
@@ -224,8 +234,10 @@ _global_script_class_icons={
 "Inventory": "",
 "Item": "",
 "ItemTrait": "",
+"LevelDefinition": "",
 "Player": "",
-"Weapon": ""
+"Weapon": "",
+"WorldDefinition": ""
 }
 
 [application]
@@ -369,4 +381,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

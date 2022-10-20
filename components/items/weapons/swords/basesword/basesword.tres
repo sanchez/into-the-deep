@@ -1,27 +1,13 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://components/items/weapons/Weapon.gd" type="Script" id=1]
-[ext_resource path="res://components/items/traits/PlayAttack.gd" type="Script" id=2]
-[ext_resource path="res://components/damage/DamageDefinition.gd" type="Script" id=3]
 [ext_resource path="res://components/items/weapons/swords/basesword/swords.png" type="Texture" id=4]
 [ext_resource path="res://components/items/weapons/swords/SwordCooldown.tres" type="Resource" id=5]
-[ext_resource path="res://animations/attacks/sword/SwordSwing.tscn" type="PackedScene" id=6]
-[ext_resource path="res://components/buffs/charged/charged.tres" type="Resource" id=7]
-
-[sub_resource type="Resource" id=5]
-script = ExtResource( 3 )
-BASE_ATTACK = 10.0
-BUFFS = [ ExtResource( 7 ) ]
-
-[sub_resource type="Resource" id=6]
-script = ExtResource( 2 )
-ATTACK = ExtResource( 6 )
-DAMAGE = SubResource( 5 )
 
 [resource]
 script = ExtResource( 1 )
 KEY = "Sword"
 ICON = ExtResource( 4 )
-TRAITS = [ ExtResource( 5 ), SubResource( 6 ) ]
+TRAITS = [ ExtResource( 5 ) ]
 MAX_STACK = 1
 ICON_SCALE = 0.5

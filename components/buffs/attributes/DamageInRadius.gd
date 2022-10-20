@@ -23,10 +23,13 @@ func damage_in_radius(health):
 	var instance = BaseAOE.instance()
 	instance.connect("on_hit", self, "_handle_on_hit", [health])
 	instance.global_position = health.owner.global_position
-	world.add_child(instance)
+	world.call_deferred("add_child", instance)
 	
 func _handle_on_hit(target, current_health):
 	var damage = get_damage()
+	if not target.has_node("HealthStatus"):
+		return
+		
 	var healthStatus: HealthStatus = target.get_node("HealthStatus")
 	if is_instance_valid(healthStatus):
 		healthStatus.on_hit(damage)
