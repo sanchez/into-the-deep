@@ -1,6 +1,6 @@
 extends Resource
-class_name LevelDefinition
+class_name StageDefinition
 
 export (int) var MIN_STAGE
 export (int) var MAX_STAGE
-export (PackedScene) var LEVEL
+export (PackedScene) var STAGE

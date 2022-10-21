@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://levels/generator/world_definition.gd" type="Script" id=1]
+[ext_resource path="res://levels/generator/stage_definition.gd" type="Script" id=2]
+[ext_resource path="res://levels/Desert/BossDesert.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/Desert/Desert01.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+MIN_STAGE = 0
+MAX_STAGE = 5
+STAGE = ExtResource( 4 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+MIN_STAGE = 5
+MAX_STAGE = 5
+STAGE = ExtResource( 3 )
+
+[resource]
+script = ExtResource( 1 )
+LEVELS = [ SubResource( 1 ), SubResource( 2 ) ]

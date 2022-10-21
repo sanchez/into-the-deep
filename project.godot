@@ -179,15 +179,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/items/ItemTrait.gd"
 }, {
-"base": "Resource",
-"class": "LevelDefinition",
-"language": "GDScript",
-"path": "res://levels/generator/level_definition.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://characters/Player.gd"
+}, {
+"base": "Resource",
+"class": "StageDefinition",
+"language": "GDScript",
+"path": "res://levels/generator/stage_definition.gd"
 }, {
 "base": "Item",
 "class": "Weapon",
@@ -234,8 +234,8 @@ _global_script_class_icons={
 "Inventory": "",
 "Item": "",
 "ItemTrait": "",
-"LevelDefinition": "",
 "Player": "",
+"StageDefinition": "",
 "Weapon": "",
 "WorldDefinition": ""
 }
