@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/BaseWorld.gd" type="Script" id=1]
 [ext_resource path="res://levels/Desert/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/Desert/NormalDrops.tres" type="Resource" id=3]
 [ext_resource path="res://components/items/drops/chest/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemies/dev/knight/Knight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/door/Door.tscn" type="PackedScene" id=6]
 
 [node name="BaseWorld" type="Node"]
 script = ExtResource( 1 )
@@ -21,3 +22,8 @@ DROP_POOL = ExtResource( 3 )
 
 [node name="Knight" parent="." instance=ExtResource( 5 )]
 position = Vector2( -48, -58 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( -29, -123 )
+
+[connection signal="on_player_entered" from="Door" to="." method="next_level"]

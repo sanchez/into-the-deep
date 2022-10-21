@@ -18,12 +18,15 @@ func load_level(player):
 	add_child(stage_instance)
 	stage_instance.spawn_player(player)
 	
-func _handle_next_level(player):
+func deferred_next_level(player):
 	current_stage += 1
 	for x in get_children():
 		remove_child(x)
 	
 	load_level(player)
+	
+func _handle_next_level(player):
+	call_deferred("deferred_next_level", player)
 
 func _ready():
 	var player_instance = PLAYER.instance()
