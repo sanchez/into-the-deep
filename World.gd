@@ -18,10 +18,9 @@ func load_level():
 	stage_instance.connect("on_next_level", self, "_handle_next_level")
 	stage_instance.add_to_group("level")
 	
+	add_child(stage_instance)
 	var player_spawn_pos = stage_instance.get_player_spawn()
 	BasePlayerNode.global_position = player_spawn_pos
-	
-	add_child(stage_instance)
 	
 func deferred_next_level():
 	current_stage += 1

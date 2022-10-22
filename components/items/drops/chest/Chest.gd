@@ -1,12 +1,19 @@
 extends StaticBody2D
 
 export (Resource) var DROP_POOL
+export (Array, NodePath) var LOCKED_BY
 
 var is_broken = false
 const chest_broken_texture = preload("res://components/items/drops/chest/chest-broken.png")
 const DroppedItem = preload("res://components/items/DroppedItem.tscn")
 
 onready var SpriteNode := $Sprite
+
+func is_locked():
+	for x in LOCKED_BY:
+		if has_node(x):
+			return true
+	return false
 
 func spawn_item(item):
 	var drop_location = Vector2(rand_range(-1, 1), rand_range(-1, 1)) * 20
@@ -17,6 +24,9 @@ func spawn_item(item):
 
 func drop_item():
 	if is_broken:
+		return
+		
+	if is_locked():
 		return
 	
 	is_broken = true
