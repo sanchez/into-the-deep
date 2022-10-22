@@ -1,15 +1,14 @@
 extends Node
 class_name BaseWorld
 
-signal on_next_level(player)
+signal on_next_level()
 
 func next_level():
-	emit_signal("on_next_level", get_node("BasePlayer"))
-
-func spawn_player(player):
+	emit_signal("on_next_level")
+	
+func get_player_spawn():
 	var spawn = get_node("Spawn")
-	add_child(player)
-	player.global_position = spawn.global_position
+	return spawn.global_position
 
 func is_damagable(node: Node):
 	var health = node.find_node("HealthStatus")

@@ -1,12 +1,13 @@
 extends Node2D
 
-export (PackedScene) var PLAYER
 export (Array, Resource) var LEVELS
+
+onready var BasePlayerNode := $BasePlayer
 
 var current_level = 0
 var current_stage = 0
 
-func load_level(player):
+func load_level():
 	var level = LEVELS[current_level]
 	var stage = level.get_level(current_stage)
 	if not is_instance_valid(stage):
@@ -15,19 +16,23 @@ func load_level(player):
 		
 	var stage_instance = stage.instance()
 	stage_instance.connect("on_next_level", self, "_handle_next_level")
-	add_child(stage_instance)
-	stage_instance.spawn_player(player)
+	stage_instance.add_to_group("level")
 	
-func deferred_next_level(player):
+	var player_spawn_pos = stage_instance.get_player_spawn()
+	BasePlayerNode.global_position = player_spawn_pos
+	
+	add_child(stage_instance)
+	
+func deferred_next_level():
 	current_stage += 1
 	for x in get_children():
-		remove_child(x)
+		if x.is_in_group("level"):
+			x.queue_free()
 	
-	load_level(player)
+	load_level()
 	
-func _handle_next_level(player):
-	call_deferred("deferred_next_level", player)
+func _handle_next_level():
+	call_deferred("deferred_next_level")
 
 func _ready():
-	var player_instance = PLAYER.instance()
-	load_level(player_instance)
+	load_level()

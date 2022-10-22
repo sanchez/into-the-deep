@@ -6,5 +6,7 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
-PLAYER = ExtResource( 1 )
 LEVELS = [ ExtResource( 3 ) ]
+
+[node name="BasePlayer" parent="." instance=ExtResource( 1 )]
+z_index = 1
