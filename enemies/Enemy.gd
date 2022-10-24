@@ -6,6 +6,8 @@ export (Resource) var TARGETER
 
 var APPLY_ROTATION = true
 
+var properties = {}
+
 var motion := Vector2.ZERO
 
 func _process(delta):
