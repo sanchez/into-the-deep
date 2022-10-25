@@ -1,6 +1,7 @@
 extends Area2D
 
 export (Array, NodePath) var LOCKED_BY
+export (Resource) var LINKS_TO
 
 signal on_player_entered()
 
@@ -13,4 +14,5 @@ func is_locked():
 func _on_Area2D_body_entered(body):
 	if body is Player:
 		if not is_locked():
-			emit_signal("on_player_entered")
+			var next_level = LINKS_TO.get_level()
+			emit_signal("on_player_entered", next_level)

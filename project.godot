@@ -120,6 +120,11 @@ _global_script_classes=[ {
 "path": "res://components/damage/WeightedDamage.gd"
 }, {
 "base": "Resource",
+"class": "DoorLevelSelector",
+"language": "GDScript",
+"path": "res://levels/door/DoorLevelSelector.gd"
+}, {
+"base": "Resource",
 "class": "DropCollection",
 "language": "GDScript",
 "path": "res://components/items/drops/pools/DropCollection.gd"
@@ -242,6 +247,7 @@ _global_script_class_icons={
 "DamageDefinition": "",
 "DamageStacked": "",
 "DamageWeighted": "",
+"DoorLevelSelector": "",
 "DropCollection": "",
 "DropPool": "",
 "DroppedItem": "",

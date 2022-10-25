@@ -1,10 +1,10 @@
 extends Node
 class_name BaseWorld
 
-signal on_next_level()
+signal on_next_level(world)
 
-func next_level():
-	emit_signal("on_next_level")
+func next_level(world: PackedScene):
+	emit_signal("on_next_level", world)
 	
 func get_player_spawn():
 	var spawn = get_node("Spawn")
