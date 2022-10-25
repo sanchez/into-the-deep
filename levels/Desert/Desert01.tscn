@@ -25,9 +25,11 @@ position = Vector2( -29, -123 )
 LOCKED_BY = [ NodePath("") ]
 
 [node name="Wisp" parent="." instance=ExtResource( 5 )]
-position = Vector2( 24, 279 )
+position = Vector2( -10, -69 )
+rotation = -3.63972
 
 [node name="Wisp2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -210, 277 )
+position = Vector2( -216, -72 )
+rotation = 3.13256
 
 [connection signal="on_player_entered" from="Door" to="." method="next_level"]

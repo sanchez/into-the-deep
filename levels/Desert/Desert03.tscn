@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/BaseWorld.gd" type="Script" id=1]
 [ext_resource path="res://levels/Desert/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/door/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/Desert/NormalDrops.tres" type="Resource" id=4]
 [ext_resource path="res://components/items/drops/chest/Chest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/desert/wisp/wisp.tscn" type="PackedScene" id=6]
 
 [node name="BaseWorld" type="Node"]
 script = ExtResource( 1 )
@@ -25,5 +26,22 @@ DROP_POOL = ExtResource( 4 )
 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( -179, 272 )
+
+[node name="Wisp" parent="." instance=ExtResource( 6 )]
+position = Vector2( -222, -186 )
+
+[node name="Wisp2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 194, -183 )
+
+[node name="Wisp3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 235, 278 )
+rotation = 0.847601
+
+[node name="Wisp4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 115, 66 )
+
+[node name="Wisp5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 127, 276 )
+rotation = 2.79646
 
 [connection signal="on_player_entered" from="Door" to="." method="next_level"]

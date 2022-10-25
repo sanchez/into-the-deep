@@ -8,6 +8,7 @@ const chest_broken_texture = preload("res://components/items/drops/chest/chest-b
 const DroppedItem = preload("res://components/items/DroppedItem.tscn")
 
 onready var SpriteNode := $Sprite
+onready var CollisionShape2DNode := $CollisionShape2D
 
 func is_locked():
 	for x in LOCKED_BY:
@@ -31,13 +32,14 @@ func drop_item():
 	
 	is_broken = true
 	SpriteNode.texture = chest_broken_texture
+	CollisionShape2DNode.disabled = true
 	
 	var items = DROP_POOL.get_drops()
 	for x in items:
 		spawn_item(x)
 
 func _on_Area2D_area_entered(_area):
-	drop_item()
+	call_deferred("drop_item")
 
 func _on_Area2D_body_entered(_body):
-	drop_item()
+	call_deferred("drop_item")

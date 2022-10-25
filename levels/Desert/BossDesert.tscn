@@ -4,7 +4,7 @@
 [ext_resource path="res://levels/Desert/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://components/items/drops/chest/Chest.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/Desert/BossDrops.tres" type="Resource" id=4]
-[ext_resource path="res://enemies/dev/knight/Knight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/desert/wisp/wisp.tscn" type="PackedScene" id=5]
 
 [node name="BossDesert" type="Node"]
 script = ExtResource( 1 )
@@ -16,14 +16,20 @@ position = Vector2( 16, -17 )
 scale = Vector2( 0.664335, 0.705407 )
 DROP_POOL = ExtResource( 4 )
 
-[node name="Knight" parent="." instance=ExtResource( 6 )]
-position = Vector2( -201, -77 )
-
-[node name="Knight2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -84, -75 )
-
-[node name="Knight3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 216, -71 )
-
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 1, 269 )
+
+[node name="Wisp" parent="." instance=ExtResource( 5 )]
+position = Vector2( -202, -64 )
+
+[node name="Wisp2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 15, 96 )
+
+[node name="Wisp3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 143, 5 )
+
+[node name="Wisp4" parent="." instance=ExtResource( 5 )]
+position = Vector2( -69, 42 )
+
+[node name="Wisp5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 236, -61 )
