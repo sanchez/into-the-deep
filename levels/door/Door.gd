@@ -1,4 +1,4 @@
-extends Area2D
+extends LevelManagerDoor
 
 export (Array, NodePath) var LOCKED_BY
 export (Resource) var LINKS_TO

@@ -204,6 +204,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://components/items/ItemTrait.gd"
 }, {
+"base": "Area2D",
+"class": "LevelManagerDoor",
+"language": "GDScript",
+"path": "res://addons/level_manager/LevelManagerDoor.gd"
+}, {
+"base": "Node2D",
+"class": "LevelManagerWorld",
+"language": "GDScript",
+"path": "res://addons/level_manager/LevelManagerWorld.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -264,6 +274,8 @@ _global_script_class_icons={
 "Inventory": "",
 "Item": "",
 "ItemTrait": "",
+"LevelManagerDoor": "",
+"LevelManagerWorld": "",
 "Player": "",
 "StageDefinition": "",
 "Weapon": "",
@@ -288,6 +300,10 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-plugin-refresher/plugin.cfg", "res://addons/level_manager/plugin.cfg" )
 
 [gui]
 

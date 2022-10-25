@@ -1,0 +1,18 @@
+tool
+extends GraphEdit
+
+const LevelNode := preload("res://addons/level_manager/ui/controls/LevelNode.tscn")
+
+func can_drop_data(position, data):
+	var file_paths = data["files"]
+	for x in file_paths:
+		if not x.ends_with(".tscn"):
+			return false
+	return true
+
+func drop_data(position, data):
+	var file_paths = data["files"]
+	for path in file_paths:
+		var level_node = LevelNode.instance()
+		level_node.FILE_PATH = path
+		add_child(level_node)
