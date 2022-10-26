@@ -5,6 +5,7 @@ const Editor := preload("res://addons/level_manager/ui/Editor.tscn")
 var editor_instance
 
 func _enter_tree():
+	print("Creating Level Manager")
 	editor_instance = Editor.instance()
 	get_editor_interface().get_editor_viewport().add_child(editor_instance)
 	make_visible(false)
