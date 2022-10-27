@@ -3,7 +3,7 @@ class_name ETLineOfSight
 
 var search_dirs = {}
 
-func locate(enemy: Enemy, delta: float) -> Vector2:
+func locate(enemy: Enemy, _delta: float) -> Vector2:
 	var enemy_id = enemy.get_instance_id()
 	
 	if not search_dirs.has(enemy_id):
