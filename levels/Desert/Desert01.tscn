@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/BaseWorld.gd" type="Script" id=1]
 [ext_resource path="res://levels/Desert/TileMap.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://levels/door/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/Desert/Desert02.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/door/DoorLevelSelector.gd" type="Script" id=8]
+[ext_resource path="res://addons/level_manager/LevelManagerSpawn.gd" type="Script" id=9]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -38,5 +39,9 @@ rotation = -3.63972
 [node name="Wisp2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -216, -72 )
 rotation = 3.13256
+
+[node name="LevelManagerSpawn" type="Position2D" parent="."]
+position = Vector2( -97, 294 )
+script = ExtResource( 9 )
 
 [connection signal="on_player_entered" from="Door" to="." method="next_level"]

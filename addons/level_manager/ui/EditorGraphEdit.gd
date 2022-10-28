@@ -30,9 +30,21 @@ func add_waypoint():
 	instance.connect("on_delete", self, "_handle_delete_node", [instance])
 	add_child(instance)
 
+func disconnect_whole_node(node):
+	var node_name = node.name
+	for x in get_connection_list():
+		if x.from == node_name or x.to == node_name:
+			disconnect_node(x.from, x.from_port, x.to, x.to_port)
+
+
 func _handle_delete_node(node):
+	disconnect_whole_node(node)
 	node.queue_free()
 
 
 func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
 	connect_node(from, from_slot, to, to_slot)
+
+
+func serialize():
+	""

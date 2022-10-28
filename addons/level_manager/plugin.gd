@@ -26,3 +26,7 @@ func get_plugin_name():
 
 func get_plugin_icon():
 	return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
+
+func save_external_data():
+	if is_instance_valid(editor_instance):
+		editor_instance.save()

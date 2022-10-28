@@ -5,11 +5,13 @@ signal on_delete()
 
 export (String) var FILE_PATH
 
-var channels = []
+var output_channels = []
+var input_channels = []
 
-func register_channel(channel_name):
+func register_channel(input_channel, output_channel):
 	var index = get_child_count()
-	var enable_left = index == 0
+	var input_name = input_channel if input_channel != null else ""
+	var output_name = output_channel if output_channel != null else ""
 	
 	var container = HBoxContainer.new()
 	container.grow_horizontal = Control.GROW_DIRECTION_BOTH
@@ -17,37 +19,45 @@ func register_channel(channel_name):
 	container.size_flags_horizontal = 3
 	
 	var leftLabel = Label.new()
-	leftLabel.text = ""
-	if enable_left:
-		leftLabel.text = "Input"
+	leftLabel.text = input_name
 	leftLabel.size_flags_horizontal = 3
 	container.add_child(leftLabel)
 	
 	var rightLabel = Label.new()
-	rightLabel.text = channel_name
+	rightLabel.text = output_name
 	container.add_child(rightLabel)
 	
 	add_child(container)
-	set_slot(index, enable_left, 0, Color.white, true, 0, Color.white)
+	set_slot(index, input_channel != null, 0, Color.white, output_channel != null, 0, Color.white)
 	
 
-func find_channel(node: Node):
+func load_channels(node: Node):
 	if node is LevelManagerDoor:
-		if not channels.has(node.CHANNEL):
-			channels.append(node.CHANNEL)
+		if not output_channels.has(node.CHANNEL):
+			output_channels.append(node.CHANNEL)
 			return
 			
+	if node is LevelManagerSpawn:
+		if not input_channels.has(node.CHANNEL):
+			input_channels.append(node.CHANNEL)
+			return
+	
 	for x in node.get_children():
-		find_channel(x)
+		load_channels(x)
 
 
 func _ready():
 	var scene = load(FILE_PATH)
 	var instance = scene.instance()
 	title = FILE_PATH
-	find_channel(instance)
-	for channel in channels:
-		register_channel(channel)
+	
+	load_channels(instance)
+	
+	var max_index = max(output_channels.size(), input_channels.size())
+	for x in range(0, max_index):
+		var input_channel = input_channels[x] if x < input_channels.size() else null
+		var output_channel = output_channels[x] if x < output_channels.size() else null
+		register_channel(input_channel, output_channel)
 
 
 func _on_LevelNode_resize_request(new_minsize):
