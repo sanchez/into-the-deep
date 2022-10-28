@@ -1,8 +1,14 @@
 tool
 extends GraphEdit
 
+
 const LevelNode := preload("res://addons/level_manager/ui/controls/LevelNode.tscn")
 const WaypointNode := preload("res://addons/level_manager/ui/controls/Waypoint.tscn")
+const LevelCollection := preload("res://addons/level_manager/definitions/LevelCollection.gd")
+
+
+var current_resource: LevelCollection = null
+
 
 func can_drop_data(position, data):
 	var file_paths = data["files"]
@@ -46,5 +52,9 @@ func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
 	connect_node(from, from_slot, to, to_slot)
 
 
-func serialize():
-	""
+func load_resource(resource: LevelCollection):
+	pass
+
+func save_resource():
+	if is_instance_valid(current_resource):
+		ResourceSaver.save(current_resource.resource_path, current_resource)

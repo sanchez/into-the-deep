@@ -4,9 +4,13 @@ extends GraphNode
 signal on_delete()
 
 export (String) var FILE_PATH
+export (Resource) var DEFINITION
 
 var output_channels = []
 var input_channels = []
+
+func _init():
+	DEFINITION = LevelManagerLevel.new()
 
 func register_channel(input_channel, output_channel):
 	var index = get_child_count()
@@ -66,3 +70,7 @@ func _on_LevelNode_resize_request(new_minsize):
 
 func _on_LevelNode_close_request():
 	emit_signal("on_delete")
+
+
+func _on_LevelNode_offset_changed():
+	DEFINITION.POSITION = offset

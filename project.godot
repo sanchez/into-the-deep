@@ -219,11 +219,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/level_manager/definitions/LevelManagerLevel.gd"
 }, {
-"base": "Resource",
-"class": "LevelManagerManager",
-"language": "GDScript",
-"path": "res://addons/level_manager/definitions/LevelManagerManager.gd"
-}, {
 "base": "Position2D",
 "class": "LevelManagerSpawn",
 "language": "GDScript",
@@ -302,7 +297,6 @@ _global_script_class_icons={
 "LevelManagerDefinition": "",
 "LevelManagerDoor": "",
 "LevelManagerLevel": "",
-"LevelManagerManager": "",
 "LevelManagerSpawn": "",
 "LevelManagerWaypoint": "",
 "LevelManagerWorld": "",
