@@ -3,7 +3,6 @@ extends GraphNode
 
 signal on_delete()
 
-export (String) var FILE_PATH
 export (Resource) var DEFINITION
 
 var output_channels = []
@@ -51,9 +50,9 @@ func load_channels(node: Node):
 
 
 func _ready():
-	var scene = load(FILE_PATH)
+	var scene = load(DEFINITION.FILE_PATH)
 	var instance = scene.instance()
-	title = FILE_PATH
+	title = DEFINITION.FILE_PATH
 	
 	load_channels(instance)
 	

@@ -1,9 +1,16 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://addons/level_manager/definitions/LevelCollection.gd" type="Script" id=1]
+[ext_resource path="res://addons/level_manager/definitions/LevelManagerWaypoint.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+POSITION = Vector2( 660, 400 )
+ID = "826029699"
+NAME = ""
 
 [resource]
 script = ExtResource( 1 )
-WAYPOINTS = [  ]
+WAYPOINTS = [ SubResource( 1 ) ]
 NODES = [  ]
 CONNECTIONS = [  ]
