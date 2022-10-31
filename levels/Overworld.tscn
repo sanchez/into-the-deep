@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/Desert/Desert01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/door/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/Overworld.gd" type="Script" id=3]
 [ext_resource path="res://levels/door/DoorLevelSelector.gd" type="Script" id=4]
+[ext_resource path="res://addons/level_manager/LevelManagerSpawn.gd" type="Script" id=5]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 4 )
@@ -18,5 +19,6 @@ LINKS_TO = SubResource( 1 )
 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 1, 107 )
+script = ExtResource( 5 )
 
 [connection signal="on_player_entered" from="Door" to="." method="next_level"]

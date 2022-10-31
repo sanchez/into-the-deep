@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/level_manager/ui/controls/Waypoint.gd" type="Script" id=1]
+[ext_resource path="res://addons/level_manager/definitions/LevelManagerWaypoint.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+POSITION = Vector2( 0, 0 )
+ID = "3439955333"
+NAME = ""
 
 [node name="GraphNode" type="GraphNode"]
 margin_right = 320.0
@@ -16,6 +23,7 @@ slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
+DEFINITION = SubResource( 1 )
 
 [node name="TextEdit" type="TextEdit" parent="."]
 margin_left = 16.0
@@ -23,8 +31,8 @@ margin_top = 24.0
 margin_right = 304.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 0, 60 )
-text = "Name"
 
 [connection signal="close_request" from="." to="." method="_on_GraphNode_close_request"]
 [connection signal="offset_changed" from="." to="." method="_on_GraphNode_offset_changed"]
 [connection signal="resize_request" from="." to="." method="_on_GraphNode_resize_request"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]

@@ -4,10 +4,22 @@ extends GraphNode
 
 signal on_delete()
 
+onready var TextEditNode := $TextEdit
+
+var output_channels = []
+var input_channels = []
+
+
 export (Resource) var DEFINITION
 
 func _init():
 	DEFINITION = LevelManagerWaypoint.new()
+	output_channels.append("main")
+	input_channels.append("main")
+	
+
+func _ready():
+	TextEditNode.text = DEFINITION.NAME
 
 
 func _on_GraphNode_close_request():
@@ -20,3 +32,7 @@ func _on_GraphNode_resize_request(new_minsize):
 
 func _on_GraphNode_offset_changed():
 	DEFINITION.POSITION = offset
+
+
+func _on_TextEdit_text_changed():
+	DEFINITION.NAME = TextEditNode.text

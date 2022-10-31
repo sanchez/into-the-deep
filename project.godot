@@ -205,6 +205,11 @@ _global_script_classes=[ {
 "path": "res://components/items/ItemTrait.gd"
 }, {
 "base": "Resource",
+"class": "LevelManagerConnection",
+"language": "GDScript",
+"path": "res://addons/level_manager/definitions/LevelManagerConnection.gd"
+}, {
+"base": "Resource",
 "class": "LevelManagerDefinition",
 "language": "GDScript",
 "path": "res://addons/level_manager/definitions/LevelManagerDefinition.gd"
@@ -294,6 +299,7 @@ _global_script_class_icons={
 "Inventory": "",
 "Item": "",
 "ItemTrait": "",
+"LevelManagerConnection": "",
 "LevelManagerDefinition": "",
 "LevelManagerDoor": "",
 "LevelManagerLevel": "",

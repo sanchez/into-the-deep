@@ -1,16 +1,37 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=9 format=2]
 
 [ext_resource path="res://addons/level_manager/definitions/LevelCollection.gd" type="Script" id=1]
 [ext_resource path="res://addons/level_manager/definitions/LevelManagerWaypoint.gd" type="Script" id=2]
+[ext_resource path="res://addons/level_manager/definitions/LevelManagerLevel.gd" type="Script" id=3]
+[ext_resource path="res://addons/level_manager/definitions/LevelManagerConnection.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 4 )
+FROM_ID = "3164662509"
+FROM_CHANNEL = "main"
+TO_ID = "2390510176"
+TO_CHANNEL = "main"
 
 [sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+POSITION = Vector2( 780, 540 )
+ID = "2390510176"
+FILE_PATH = "res://levels/Overworld.tscn"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+POSITION = Vector2( 1026, 313 )
+ID = "3161026589"
+FILE_PATH = "res://levels/Desert/Desert01.tscn"
+
+[sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
-POSITION = Vector2( 660, 400 )
-ID = "826029699"
-NAME = ""
+POSITION = Vector2( 360, 560 )
+ID = "3164662509"
+NAME = "Start"
 
 [resource]
 script = ExtResource( 1 )
-WAYPOINTS = [ SubResource( 1 ) ]
-NODES = [  ]
-CONNECTIONS = [  ]
+WAYPOINTS = [ SubResource( 2 ) ]
+NODES = [ SubResource( 1 ), SubResource( 3 ), SubResource( 3 ) ]
+CONNECTIONS = [ SubResource( 4 ) ]

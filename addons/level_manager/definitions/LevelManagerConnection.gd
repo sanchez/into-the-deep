@@ -1,4 +1,5 @@
 extends Resource
+class_name LevelManagerConnection
 
 export (String) var FROM_ID
 export (String) var FROM_CHANNEL
