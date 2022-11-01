@@ -3,26 +3,27 @@
 [ext_resource path="res://addons/level_manager/definitions/LevelManagerLevel.gd" type="Script" id=1]
 [ext_resource path="res://addons/level_manager/ui/controls/LevelNode.gd" type="Script" id=2]
 
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=1]
+resource_local_to_scene = true
 script = ExtResource( 1 )
-POSITION = Vector2( 1140, 540 )
-ID = "3161026589"
-FILE_PATH = "res://levels/Desert/Desert01.tscn"
+POSITION = Vector2( 0, 0 )
+ID = ""
+FILE_PATH = ""
 
 [node name="LevelNode" type="GraphNode"]
 margin_right = 248.0
 margin_bottom = 172.0
-title = "res://levels/Desert/Desert03.tscn"
+title = "res://levels/Overworld.tscn"
 show_close = true
 resizable = true
-slot/0/left_enabled = false
+slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 2 )
-DEFINITION = SubResource( 3 )
+DEFINITION = SubResource( 1 )
 
 [connection signal="close_request" from="." to="." method="_on_LevelNode_close_request"]
 [connection signal="offset_changed" from="." to="." method="_on_LevelNode_offset_changed"]

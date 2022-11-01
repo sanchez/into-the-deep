@@ -28,16 +28,20 @@ func can_drop_data(position, data):
 	
 	
 func add_file(path, position):
-	print("Adding: ", path)
 	var level_node = LevelNode.instance()
+	print(level_node.DEFINITION.ID)
 	level_node.offset = position
 	level_node.connect("on_delete", self, "_handle_delete_node", [level_node])
 	level_node.DEFINITION.FILE_PATH = path
-	add_child(level_node)
 	
 	if is_instance_valid(current_resource):
-		print(level_node.DEFINITION)
+		print("Pre add: ", level_node.DEFINITION.ID)
 		current_resource.NODES.append(level_node.DEFINITION)
+		for x in current_resource.NODES:
+			print("Existing: ", x.ID)
+		current_resource.property_list_changed_notify()
+	
+	add_child(level_node)
 
 
 func drop_data(position, data):
@@ -52,6 +56,7 @@ func add_waypoint():
 	
 	if is_instance_valid(current_resource):
 		current_resource.WAYPOINTS.append(instance.DEFINITION)
+		current_resource.property_list_changed_notify()
 
 func disconnect_whole_node(node):
 	var node_name = node.name
@@ -64,6 +69,7 @@ func disconnect_whole_node(node):
 		for x in current_resource.CONNECTIONS:
 			if x.FROM_ID == definition_id or x.TO_ID == definition_id:
 				current_resource.CONNECTIONS.erase(x)
+		current_resource.property_list_changed_notify()
 
 
 func _handle_delete_node(node):
@@ -71,6 +77,7 @@ func _handle_delete_node(node):
 	if is_instance_valid(current_resource):
 		current_resource.NODES.erase(node.DEFINITION)
 		current_resource.WAYPOINTS.erase(node.DEFINITION)
+		current_resource.property_list_changed_notify()
 	
 	node.queue_free()
 
@@ -88,6 +95,8 @@ func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
 		conn.TO_ID = to_node.DEFINITION.ID
 		conn.TO_CHANNEL = to_node.input_channels[to_slot]
 		current_resource.CONNECTIONS.append(conn)
+		
+		current_resource.property_list_changed_notify()
 	
 
 func clear():
@@ -138,3 +147,4 @@ func load_resource(resource: LevelCollection):
 func save_resource():
 	if is_instance_valid(current_resource):
 		ResourceSaver.save(current_resource.resource_path, current_resource)
+		current_resource.property_list_changed_notify()

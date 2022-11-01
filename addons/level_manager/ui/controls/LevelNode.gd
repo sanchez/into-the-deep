@@ -8,9 +8,6 @@ export (Resource) var DEFINITION
 var output_channels = []
 var input_channels = []
 
-func _init():
-	DEFINITION = LevelManagerLevel.new()
-
 func register_channel(input_channel, output_channel):
 	var index = get_child_count()
 	var input_name = input_channel if input_channel != null else ""
@@ -50,6 +47,7 @@ func load_channels(node: Node):
 
 
 func _ready():
+	print("ready: ", DEFINITION.ID)
 	var scene = load(DEFINITION.FILE_PATH)
 	var instance = scene.instance()
 	title = DEFINITION.FILE_PATH

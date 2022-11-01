@@ -13,13 +13,13 @@ var input_channels = []
 export (Resource) var DEFINITION
 
 func _init():
-	DEFINITION = LevelManagerWaypoint.new()
 	output_channels.append("main")
 	input_channels.append("main")
 	
 
 func _ready():
 	TextEditNode.text = DEFINITION.NAME
+	property_list_changed_notify()
 
 
 func _on_GraphNode_close_request():
