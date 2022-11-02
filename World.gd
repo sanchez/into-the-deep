@@ -1,7 +1,4 @@
-extends Node2D
-
-export (PackedScene) var OVERWORLD
-export (Array, Resource) var LEVELS
+extends LevelManagerWorld
 
 onready var BasePlayerNode := $BasePlayer
 
@@ -16,9 +13,6 @@ func load_world(world: PackedScene):
 	add_child(instance)
 	var player_spawn_pos = instance.get_player_spawn()
 	BasePlayerNode.global_position = player_spawn_pos
-
-func load_overworld():
-	load_world(OVERWORLD)
 
 func load_level():
 	if current_level == 0:
