@@ -47,7 +47,6 @@ func load_channels(node: Node):
 
 
 func _ready():
-	print("ready: ", DEFINITION.ID)
 	var scene = load(DEFINITION.FILE_PATH)
 	var instance = scene.instance()
 	title = DEFINITION.FILE_PATH

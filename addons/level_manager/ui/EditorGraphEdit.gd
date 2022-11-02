@@ -10,6 +10,10 @@ const LevelCollection := preload("res://addons/level_manager/definitions/LevelCo
 var current_resource: LevelCollection = null
 
 
+func generate_id():
+	return str(randi())
+
+
 func get_node_from_id(id: String):
 	for x in get_children():
 		if "DEFINITION" in x:
@@ -29,16 +33,13 @@ func can_drop_data(position, data):
 	
 func add_file(path, position):
 	var level_node = LevelNode.instance()
-	print(level_node.DEFINITION.ID)
+	level_node.DEFINITION.ID = generate_id()
 	level_node.offset = position
 	level_node.connect("on_delete", self, "_handle_delete_node", [level_node])
 	level_node.DEFINITION.FILE_PATH = path
 	
 	if is_instance_valid(current_resource):
-		print("Pre add: ", level_node.DEFINITION.ID)
 		current_resource.NODES.append(level_node.DEFINITION)
-		for x in current_resource.NODES:
-			print("Existing: ", x.ID)
 		current_resource.property_list_changed_notify()
 	
 	add_child(level_node)
@@ -51,6 +52,7 @@ func drop_data(position, data):
 
 func add_waypoint():
 	var instance = WaypointNode.instance()
+	instance.DEFINITION.ID = generate_id()
 	instance.connect("on_delete", self, "_handle_delete_node", [instance])
 	add_child(instance)
 	
