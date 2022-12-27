@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddy0qjx1idf7a"]
+
+[ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
+[ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://assets/base-character.png" id="2_xxeqh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
+radius = 2.5
+height = 8.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_w3pei")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xxeqh")
+hframes = 6
+vframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_6nm0w")
