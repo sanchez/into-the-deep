@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bevsdgjh3luqq"]
+[gd_scene load_steps=3 format=3 uid="uid://bevsdgjh3luqq"]
 
 [ext_resource type="PackedScene" uid="uid://ddy0qjx1idf7a" path="res://characters/player/Player.tscn" id="1_hip5i"]
+[ext_resource type="PackedScene" uid="uid://bsrhgf2g00bgd" path="res://ui/FPSCounter.tscn" id="2_txslr"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_hip5i")]
 position = Vector2(121, 83)
+
+[node name="FPSCounter" parent="." instance=ExtResource("2_txslr")]

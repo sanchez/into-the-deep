@@ -23,6 +23,7 @@ _global_script_class_icons={
 config/name="into-the-deep"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [display]
@@ -33,6 +34,10 @@ window/stretch/scale=4.0
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/rpg_toolkit/plugin.cfg")
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
 
 [input]
 
