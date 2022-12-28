@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name ControlledPlayer
 
 @export var MAX_SPEED := 300.0
-@export var ACCELERATION := 60.0
+@export var ACCELERATION := 40.0
 @export var FRICTION := 0.8
 
 @export_node_path(AnimationPlayer) var ANIMATION_PLAYER_PATH
@@ -49,5 +49,5 @@ func _physics_process(delta):
 			
 		if ANIMATION_PLAYER.has_animation(animation_lookup):
 			ANIMATION_PLAYER.play(animation_lookup)
-	
+			
 	move_and_slide()
