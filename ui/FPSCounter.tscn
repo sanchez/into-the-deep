@@ -14,7 +14,9 @@ font_size = 10
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="FPSCounter" type="Label"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="FPSCounter" type="Label" parent="."]
 text = "250"
 label_settings = SubResource("LabelSettings_nucw2")
 script = ExtResource("2_w56cv")
