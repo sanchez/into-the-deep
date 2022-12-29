@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://ddy0qjx1idf7a"]
 
 [ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
-[ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://assets/base-character.png" id="2_xxeqh"]
+[ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://characters/player/base-character.png" id="2_xxeqh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
 radius = 2.5
