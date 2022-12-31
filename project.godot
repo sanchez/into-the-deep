@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"ControlledPlayer",
 "language": &"GDScript",
 "path": "res://addons/rpg_toolkit/definitions/ControlledPlayer.gd"
+}, {
+"base": "Node",
+"class": &"World",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/World.gd"
 }]
 _global_script_class_icons={
-"ControlledPlayer": ""
+"ControlledPlayer": "",
+"World": ""
 }
 
 [application]
@@ -36,7 +42,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rpg_toolkit/plugin.cfg")
+enabled=PackedStringArray("res://addons/rpg_toolkit/plugin.cfg", "res://addons/world_manager/plugin.cfg")
 
 [gui]
 

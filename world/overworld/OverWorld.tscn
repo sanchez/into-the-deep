@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpakls7monst4"]
+
+[ext_resource type="Script" path="res://addons/world_manager/definitions/World.gd" id="1_7me6i"]
+
+[sub_resource type="TileSet" id="TileSet_taitp"]
+
+[node name="OverWorld" type="Node"]
+script = ExtResource("1_7me6i")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_taitp")
+format = 2
