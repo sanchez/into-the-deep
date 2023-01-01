@@ -8,7 +8,7 @@
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_hip5i")]
-position = Vector2(121, 83)
+position = Vector2(92, 114)
 
 [node name="FPSCounter" parent="." instance=ExtResource("2_txslr")]
 

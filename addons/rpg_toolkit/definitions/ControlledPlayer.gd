@@ -32,7 +32,7 @@ func _physics_process(delta):
 	
 	var is_idle = direction.length_squared() <= 0.0001
 	if not is_idle:
-		var new_velocity = direction * ACCELERATION + velocity
+		var new_velocity = direction * ACCELERATION
 		velocity += new_velocity
 		
 	else:
@@ -44,10 +44,17 @@ func _physics_process(delta):
 			if abs(new_dir_angle - x) < PI / 6:
 				animation_lookup = _direction_lookup[x]
 		_last_dir_angle = new_dir_angle
-		if is_idle:
+		
+		var actual_velocity = get_real_velocity()
+		var actual_is_idle = actual_velocity.length_squared() <= 1
+		#print(actual_velocity.length_squared())
+		#ANIMATION_PLAYER.playback_speed = (actual_is_idle == is_idle) if 1 else 0.8
+		
+		if is_idle or actual_is_idle:
 			animation_lookup += "_IDLE"
 			
 		if ANIMATION_PLAYER.has_animation(animation_lookup):
 			ANIMATION_PLAYER.play(animation_lookup)
 			
+	velocity = velocity.round()
 	move_and_slide()

@@ -10,6 +10,7 @@ height = 8.0
 [sub_resource type="Animation" id="Animation_wqf7l"]
 resource_name = "DOWN"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,6 +68,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_qu4vl"]
 resource_name = "DOWN_LEFT"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,6 +97,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_ahubt"]
 resource_name = "DOWN_LEFT_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,6 +126,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_3hog4"]
 resource_name = "DOWN_RIGHT"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,6 +155,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_q10hl"]
 resource_name = "DOWN_RIGHT_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,6 +184,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_iuich"]
 resource_name = "LEFT"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -207,6 +213,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_batur"]
 resource_name = "LEFT_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -250,6 +257,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_lhvsd"]
 resource_name = "RIGHT"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -278,6 +286,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_s8ww6"]
 resource_name = "RIGHT_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -306,6 +315,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_32vta"]
 resource_name = "UP"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -334,6 +344,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_ewlrr"]
 resource_name = "UP_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -362,6 +373,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_1q1fy"]
 resource_name = "UP_LEFT"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -390,6 +402,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_gcopj"]
 resource_name = "UP_LEFT_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -418,6 +431,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_y3h7u"]
 resource_name = "UP_RIGHT"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -446,6 +460,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_4ltbi"]
 resource_name = "UP_RIGHT_IDLE"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -494,13 +509,13 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_w3pei")
 ANIMATION_PLAYER_PATH = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(0, -7)
-scale = Vector2(-1, 1)
 texture = ExtResource("2_xxeqh")
 hframes = 6
 vframes = 10
@@ -511,7 +526,8 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_6nm0w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "DOWN_IDLE"
+autoplay = "DOWN_LEFT"
+playback_process_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_rgbnu")
 }
