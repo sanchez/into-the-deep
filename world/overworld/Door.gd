@@ -1,4 +1,4 @@
-extends Area2D
+extends DoorWay
 
 
 @onready var AnimationPlayerNode := $AnimationPlayer

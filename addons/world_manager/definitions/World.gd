@@ -2,9 +2,12 @@ extends Node2D
 class_name World
 
 
-func _ready():
-	bind_doors(self)
-	
+func _get_world_manager():
+	var p = get_parent()
+	while not p is WorldManager:
+		p = p.get_parent()
+	return p
+
 	
 func _find_spawn(node: Node, channel: String) -> Spawn:
 	for x in node.get_children():
@@ -21,13 +24,3 @@ func _find_spawn(node: Node, channel: String) -> Spawn:
 	
 func find_spawn(channel: String) -> Spawn:
 	return _find_spawn(self, channel)
-
-
-func get_doors():
-	pass
-
-
-func bind_doors(x: Node):
-	for item in x.get_children():
-		if item is DoorWay:
-			pass
