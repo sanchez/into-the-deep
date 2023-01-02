@@ -14,14 +14,38 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/rpg_toolkit/definitions/ControlledPlayer.gd"
 }, {
+"base": "Area2D",
+"class": &"DoorWay",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/DoorWay.gd"
+}, {
+"base": "Marker2D",
+"class": &"Spawn",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/Spawn.gd"
+}, {
 "base": "Node2D",
 "class": &"World",
 "language": &"GDScript",
 "path": "res://addons/world_manager/definitions/World.gd"
+}, {
+"base": "Resource",
+"class": &"WorldData",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldData.gd"
+}, {
+"base": "Node2D",
+"class": &"WorldManager",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldManager.gd"
 }]
 _global_script_class_icons={
 "ControlledPlayer": "",
-"World": ""
+"DoorWay": "",
+"Spawn": "",
+"World": "",
+"WorldData": "",
+"WorldManager": ""
 }
 
 [application]
