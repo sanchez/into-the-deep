@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://dq3l0050gs52n"]
 
-[ext_resource type="PackedScene" uid="uid://bpakls7monst4" path="res://world/overworld/OverWorld.tscn" id="1_ojs17"]
+[ext_resource type="PackedScene" uid="uid://b0o54d44iwcka" path="res://world/overworld/OverWorld.tscn" id="1_ojs17"]
 [ext_resource type="Script" path="res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd" id="1_xdq1o"]
 [ext_resource type="Script" path="res://addons/world_manager/definitions/WorldLogic/WorldLogicScene.gd" id="2_8aqdc"]
 

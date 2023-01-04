@@ -30,7 +30,6 @@ layer_1/tile_data = PackedInt32Array(7, 327680, 7, 65543, 196608, 8, 131079, 196
 
 [node name="Door" parent="." instance=ExtResource("3_3wusv")]
 position = Vector2(152, -46)
-TARGET = "Void"
 
 [node name="Starting" type="Marker2D" parent="."]
 position = Vector2(151, 20)

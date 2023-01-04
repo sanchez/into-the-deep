@@ -13,6 +13,7 @@ var current_world: World
 
 
 func _find_world(name: String, channel: String) -> World:
+	print("World Data: ", JSON.stringify(world_data))
 	for x in WORLDS:
 		if x.NAME == name:
 			return x.get_level(world_data, channel)
@@ -20,13 +21,17 @@ func _find_world(name: String, channel: String) -> World:
 
 
 func _load_world(name: String, channel: String):
+	print("Loading World: ", name)
 	current_world = _find_world(name, channel)
-	add_child(current_world)
 	
 	if has_node(PLAYER):
 		var spawn = current_world.find_spawn(channel)
 		var player = get_node(PLAYER)
 		player.global_position = spawn.global_position
+		
+	# This is required so the old events and positions are updated before new events are fired
+	await get_tree().create_timer(0.1).timeout
+	add_child.call_deferred(current_world)
 	
 	
 func _clear_world():
@@ -37,6 +42,7 @@ func _clear_world():
 	
 func _set_world(name: String, channel: String):
 	_clear_world()
+	OS.delay_msec(100)
 	_load_world(name, channel)
 	
 
