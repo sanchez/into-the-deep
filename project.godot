@@ -30,9 +30,34 @@ _global_script_classes=[{
 "path": "res://addons/world_manager/definitions/World.gd"
 }, {
 "base": "Resource",
-"class": &"WorldData",
+"class": &"WorldLogic",
 "language": &"GDScript",
-"path": "res://addons/world_manager/definitions/WorldData.gd"
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogic.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicContainer",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicIfGreaterEqual",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicIfGreaterEqual.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicIncrementOnFetch",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicIncrementOnFetch.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicRandom",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicRandom.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicScene",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicScene.gd"
 }, {
 "base": "Node2D",
 "class": &"WorldManager",
@@ -44,7 +69,12 @@ _global_script_class_icons={
 "DoorWay": "",
 "Spawn": "",
 "World": "",
-"WorldData": "",
+"WorldLogic": "",
+"WorldLogicContainer": "",
+"WorldLogicIfGreaterEqual": "",
+"WorldLogicIncrementOnFetch": "",
+"WorldLogicRandom": "",
+"WorldLogicScene": "",
 "WorldManager": ""
 }
 
@@ -113,5 +143,6 @@ ui_down={
 [rendering]
 
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 2d/snap/snap_2d_vertices_to_pixel=true
 textures/canvas_textures/default_texture_filter=0

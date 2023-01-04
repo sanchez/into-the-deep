@@ -3,21 +3,24 @@ class_name WorldManager
 
 @export var STARTING_WORLD := ""
 @export var STARTING_CHANNEL := ""
-@export var WORLDS: Array[WorldData] = []
+@export var WORLDS: Array[WorldLogicContainer] = []
 
 @export var PLAYER: NodePath
 
 
-var worlds = {}
+var world_data = {}
 var current_world: World
 
 
-func find_world(name: String) -> World:
-	return worlds[name].SCENE.instantiate()
+func _find_world(name: String, channel: String) -> World:
+	for x in WORLDS:
+		if x.NAME == name:
+			return x.get_level(world_data, channel)
+	return null
 
 
-func load_world(name: String, channel: String):
-	current_world = find_world(name)
+func _load_world(name: String, channel: String):
+	current_world = _find_world(name, channel)
 	add_child(current_world)
 	
 	if has_node(PLAYER):
@@ -26,23 +29,20 @@ func load_world(name: String, channel: String):
 		player.global_position = spawn.global_position
 	
 	
-func clear_world():
+func _clear_world():
 	for x in get_children():
 		if x is World:
 			x.queue_free()
 	
 	
+func _set_world(name: String, channel: String):
+	_clear_world()
+	_load_world(name, channel)
+	
+
 func set_world(name: String, channel: String):
-	clear_world()
-	load_world(name, channel)
-	
-	
-func next_world(channel: String):
-	pass
+	call_deferred("_set_world", name, channel)
 
 
 func _ready():
-	for x in WORLDS:
-		worlds[x.NAME] = x
-		
 	set_world(STARTING_WORLD, STARTING_CHANNEL)

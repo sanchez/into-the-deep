@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://drl3bnjxxo5dk"]
+[gd_scene load_steps=8 format=3 uid="uid://c85n0y1p41p5k"]
 
-[ext_resource type="Script" path="res://world/overworld/Door.gd" id="1_s4sjn"]
-[ext_resource type="Texture2D" uid="uid://2m1ffs3ta7ea" path="res://world/overworld/entrance-door.png" id="2_cvenq"]
+[ext_resource type="Script" path="res://world/void/VoidDoor.gd" id="1_gx718"]
+[ext_resource type="Texture2D" uid="uid://2m1ffs3ta7ea" path="res://world/void/VoidDoor.png" id="2_0ngvl"]
 
 [sub_resource type="Animation" id="Animation_lvk8s"]
 resource_name = "ACTIVATE"
@@ -46,13 +46,14 @@ size = Vector2(12, 3)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ucii"]
 radius = 25.0
 
-[node name="Door" type="Area2D"]
+[node name="VoidDoor" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_s4sjn")
+script = ExtResource("1_gx718")
+TARGET = "Void"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
-texture = ExtResource("2_cvenq")
+texture = ExtResource("2_0ngvl")
 hframes = 19
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
