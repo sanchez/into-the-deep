@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddy0qjx1idf7a"]
+[gd_scene load_steps=25 format=3 uid="uid://ddy0qjx1idf7a"]
 
 [ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
 [ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://characters/player/base-character.png" id="2_xxeqh"]
+[ext_resource type="PackedScene" uid="uid://bfajawjairb3e" path="res://addons/rpg_toolkit/components/inventory/Inventory.tscn" id="3_75sjt"]
+[ext_resource type="PackedScene" uid="uid://6gnllbyp6h7" path="res://addons/rpg_toolkit/components/inventory_picker/InventoryPicker.tscn" id="4_iceap"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
 radius = 2.5
@@ -507,6 +509,9 @@ _data = {
 "UP_RIGHT_IDLE": SubResource("Animation_4ltbi")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uxpj"]
+size = Vector2(14, 10)
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
@@ -534,3 +539,13 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Inventory" parent="." instance=ExtResource("3_75sjt")]
+SLOTS = []
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory"]
+shape = SubResource("RectangleShape2D_2uxpj")
+
+[node name="InventoryPicker" parent="Inventory" instance=ExtResource("4_iceap")]
+grow_horizontal = 2
+grow_vertical = 2

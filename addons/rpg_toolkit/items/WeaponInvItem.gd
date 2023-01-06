@@ -1,0 +1,2 @@
+extends InvItem
+class_name WeaponInvItem
