@@ -1,10 +1,20 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c4x1i8rlsudlr"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://c4x1i8rlsudlr"]
 
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/Damage.gd" id="1_dkk0v"]
+[ext_resource type="Resource" uid="uid://b1ccnjpb24jw2" path="res://addons/rpg_toolkit/animations/sword_swing/SwordSwing.tres" id="1_hjs3d"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/items/sword/SwordInvItem.gd" id="1_welej"]
 [ext_resource type="Texture2D" uid="uid://df3asnmwl11cw" path="res://items/weapons/sword/base-sword.png" id="1_wp46g"]
 
+[sub_resource type="Resource" id="Resource_txs24"]
+script = ExtResource("1_dkk0v")
+AMOUNT = 15.0
+BUFFS = null
+
 [resource]
 script = ExtResource("1_welej")
+COOLDOWN = 0.5
+DAMAGE = SubResource("Resource_txs24")
+ANIMATION = ExtResource("1_hjs3d")
 KEY = "BASE_SWORD"
 STACK = 1
 MAX_STACKS = 1

@@ -52,3 +52,7 @@ func set_world(name: String, channel: String):
 
 func _ready():
 	set_world(STARTING_WORLD, STARTING_CHANNEL)
+
+
+func spawn_projectile(projectile: PackedScene, args: Dictionary):
+	pass

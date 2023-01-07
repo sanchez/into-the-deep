@@ -9,6 +9,7 @@ class_name ControlledPlayer
 
 @onready var ANIMATION_PLAYER : AnimationPlayer = get_node(ANIMATION_PLAYER_PATH)
 @onready var HealthNode := $Health
+@onready var InventoryNode := $Inventory
 
 var _direction_lookup = {
 	Vector2.UP.angle(): "UP",
@@ -22,6 +23,22 @@ var _direction_lookup = {
 };
 
 var _last_dir_angle = Vector2.DOWN.angle()
+
+
+func attack(attack_angle: float):
+	var invItem = InventoryNode.get_item_in_slot(0)
+	if not is_instance_valid(invItem):
+		return
+
+	if not invItem is WeaponInvItem:
+		return
+		
+	var parameters = {
+		"rotation": (attack_angle + PI/2),
+		"position": Vector2(0, -6),
+	}
+		
+	invItem.ANIMATION.play(self, parameters)
 
 
 func _physics_process(delta):
@@ -55,6 +72,9 @@ func _physics_process(delta):
 			
 		if ANIMATION_PLAYER.has_animation(animation_lookup):
 			ANIMATION_PLAYER.play(animation_lookup)
+			
+	if Input.is_action_just_pressed("attack"):
+		attack(new_dir_angle)
 			
 	velocity = velocity.round()
 	move_and_slide()

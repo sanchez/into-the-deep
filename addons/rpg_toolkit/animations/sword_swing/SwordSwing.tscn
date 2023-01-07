@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://c64oyech3s608"]
+
+[ext_resource type="Texture2D" uid="uid://df3asnmwl11cw" path="res://items/weapons/sword/base-sword.png" id="1_rlker"]
+
+[sub_resource type="Animation" id="Animation_c4iqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vs700"]
+resource_name = "SWING"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-2.00713, 0.436332]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8txx"]
+_data = {
+"RESET": SubResource("Animation_c4iqv"),
+"SWING": SubResource("Animation_vs700")
+}
+
+[node name="SwordSwing" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SWING"
+libraries = {
+"": SubResource("AnimationLibrary_x8txx")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(6, -6)
+texture = ExtResource("1_rlker")
