@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://chncq04ksgxhs"]
+
+[ext_resource type="Texture2D" uid="uid://phftrct458aj" path="res://buffs/bleed/bleed.png" id="1_nvprv"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/Buff.gd" id="1_x0eud"]
+
+[resource]
+script = ExtResource("1_x0eud")
+KEY = "BLEED"
+ICON = ExtResource("1_nvprv")
+ON_APPLY = null
+ON_REMOVE = null
+ON_RECEIVE_DAMAGE = null
+ON_ATTACK = null
+ON_TICK = null

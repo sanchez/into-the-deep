@@ -1,11 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddy0qjx1idf7a"]
+[gd_scene load_steps=34 format=3 uid="uid://ddy0qjx1idf7a"]
 
 [ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
 [ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://characters/player/base-character.png" id="2_xxeqh"]
 [ext_resource type="PackedScene" uid="uid://bfajawjairb3e" path="res://addons/rpg_toolkit/components/inventory/Inventory.tscn" id="3_75sjt"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/items/WeaponTypeChecker.gd" id="4_bomsm"]
 [ext_resource type="PackedScene" uid="uid://6gnllbyp6h7" path="res://addons/rpg_toolkit/components/inventory_picker/InventoryPicker.tscn" id="4_iceap"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/Health.gd" id="5_27moy"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/components/inventory_picker/InventorySlot.gd" id="5_m8ih5"]
 [ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="6_duouo"]
+[ext_resource type="Resource" uid="uid://cde0x6swgrnx8" path="res://buffs/burn/burn.tres" id="8_qklbh"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/BuffStackPair.gd" id="9_t67f4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
 radius = 2.5
@@ -511,8 +515,20 @@ _data = {
 "UP_RIGHT_IDLE": SubResource("Animation_4ltbi")
 }
 
+[sub_resource type="Resource" id="Resource_sho2u"]
+script = ExtResource("4_bomsm")
+
+[sub_resource type="Resource" id="Resource_c24mb"]
+script = ExtResource("5_m8ih5")
+CONSTRAINT = SubResource("Resource_sho2u")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uxpj"]
 size = Vector2(14, 10)
+
+[sub_resource type="Resource" id="Resource_dp6vb"]
+script = ExtResource("9_t67f4")
+BUFF = ExtResource("8_qklbh")
+STACK = 10
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -543,7 +559,7 @@ libraries = {
 current = true
 
 [node name="Inventory" parent="." instance=ExtResource("3_75sjt")]
-SLOTS = []
+SLOTS = [SubResource("Resource_c24mb")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory"]
 shape = SubResource("RectangleShape2D_2uxpj")
@@ -552,8 +568,7 @@ shape = SubResource("RectangleShape2D_2uxpj")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("5_27moy")
-HEALTH = null
-MAX_HEALTH = null
+STATUS = [SubResource("Resource_dp6vb")]
 
 [node name="HealthBar" parent="Health" instance=ExtResource("6_duouo")]
 grow_horizontal = 2

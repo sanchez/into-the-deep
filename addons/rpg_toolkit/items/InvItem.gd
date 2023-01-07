@@ -1,4 +1,4 @@
-extends Area2D
+extends Resource
 class_name InvItem
 
 

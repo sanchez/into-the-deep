@@ -9,11 +9,18 @@ class_name Health
 signal on_death()
 
 
-func add_buff(buff: Buff, stack: int):
+func add_buff(buff: Buff, stack: int, source = null):
 	var pair = BuffStackPair.new()
 	pair.BUFF = buff
 	pair.stack = stack
 	STATUS.append(pair)
+	
+	var damage = Damage.new()
+	if not is_instance_valid(source):
+		source = self
+	buff.on_apply(self, damage, source)
+	take_damage(damage, source)
+	
 
 
 func set_buff(buff: Buff, stack: int):
@@ -68,3 +75,10 @@ func take_damage(damage: Damage, source):
 		buff_pair.BUFF.on_receive_damage(self, damage, source)
 		
 	_set_health_relative(damage.AMOUNT)
+
+
+func _process(delta):
+	for buff in STATUS:
+		var damage = Damage.new()
+		buff.BUFF.on_tick(self, damage, self, delta)
+		take_damage(damage, self)

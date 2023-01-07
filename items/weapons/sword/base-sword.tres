@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c4x1i8rlsudlr"]
+
+[ext_resource type="Script" path="res://addons/rpg_toolkit/items/sword/SwordInvItem.gd" id="1_welej"]
+[ext_resource type="Texture2D" uid="uid://df3asnmwl11cw" path="res://items/weapons/sword/base-sword.png" id="1_wp46g"]
+
+[resource]
+script = ExtResource("1_welej")
+KEY = "BASE_SWORD"
+STACK = 1
+MAX_STACKS = 1
+ICON = ExtResource("1_wp46g")
