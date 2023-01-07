@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ddy0qjx1idf7a"]
+[gd_scene load_steps=36 format=3 uid="uid://ddy0qjx1idf7a"]
 
 [ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
 [ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://characters/player/base-character.png" id="2_xxeqh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="6_duouo"]
 [ext_resource type="Resource" uid="uid://cde0x6swgrnx8" path="res://buffs/burn/burn.tres" id="8_qklbh"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/BuffStackPair.gd" id="9_t67f4"]
+[ext_resource type="Resource" uid="uid://chncq04ksgxhs" path="res://buffs/bleed/bleed.tres" id="10_g6y67"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
 radius = 2.5
@@ -530,6 +531,11 @@ script = ExtResource("9_t67f4")
 BUFF = ExtResource("8_qklbh")
 STACK = 10
 
+[sub_resource type="Resource" id="Resource_rtgnw"]
+script = ExtResource("9_t67f4")
+BUFF = ExtResource("10_g6y67")
+STACK = 2
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
@@ -568,8 +574,9 @@ shape = SubResource("RectangleShape2D_2uxpj")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("5_27moy")
-STATUS = [SubResource("Resource_dp6vb")]
+STATUS = [SubResource("Resource_dp6vb"), SubResource("Resource_rtgnw")]
 
 [node name="HealthBar" parent="Health" instance=ExtResource("6_duouo")]
-grow_horizontal = 2
-grow_vertical = 2
+position = Vector2(0, 4)
+
+[connection signal="on_death" from="Health" to="." method="die"]

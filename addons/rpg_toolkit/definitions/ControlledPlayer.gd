@@ -8,7 +8,7 @@ class_name ControlledPlayer
 @export_node_path(AnimationPlayer) var ANIMATION_PLAYER_PATH
 
 @onready var ANIMATION_PLAYER : AnimationPlayer = get_node(ANIMATION_PLAYER_PATH)
-
+@onready var HealthNode := $Health
 
 var _direction_lookup = {
 	Vector2.UP.angle(): "UP",
@@ -58,3 +58,16 @@ func _physics_process(delta):
 			
 	velocity = velocity.round()
 	move_and_slide()
+
+
+func get_world_manager() -> WorldManager:
+	var p = get_parent()
+	while not p is WorldManager:
+		p = p.get_parent()
+	return p
+
+
+func die():
+	var world_manager = get_world_manager()
+	world_manager.set_world("OverWorld", "")
+	HealthNode.reset()

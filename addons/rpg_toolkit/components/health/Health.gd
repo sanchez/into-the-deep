@@ -7,6 +7,12 @@ class_name Health
 @export var STATUS: Array[BuffStackPair] = []
 
 signal on_death()
+signal on_update()
+
+
+func reset():
+	HEALTH = MAX_HEALTH
+	STATUS = []
 
 
 func add_buff(buff: Buff, stack: int, source = null):
@@ -14,6 +20,7 @@ func add_buff(buff: Buff, stack: int, source = null):
 	pair.BUFF = buff
 	pair.stack = stack
 	STATUS.append(pair)
+	emit_signal("on_update")
 	
 	var damage = Damage.new()
 	if not is_instance_valid(source):
@@ -42,6 +49,9 @@ func set_buff_relative(buff: Buff, stack: int):
 	for x in STATUS:
 		if x.BUFF.KEY == buff.KEY:
 			x.STACK += stack
+			if x.STACK <= 0:
+				remove_buff(buff)
+				
 			return
 			
 	if stack > 0:
@@ -52,6 +62,8 @@ func remove_buff(buff: Buff):
 	for x in range(STATUS.size()):
 		if STATUS[x].BUFF.KEY == buff.KEY:
 			STATUS.remove_at(x)
+			emit_signal("on_update")
+			return
 			
 			
 func _set_health(health: int, relative: int):
@@ -68,13 +80,16 @@ func _set_health_relative(health: int):
 	
 	
 func take_damage(damage: Damage, source):
+	if damage.AMOUNT == 0 and damage.BUFFS.size() == 0:
+		return
+	
 	for buff in damage.BUFFS:
 		buff.on_attack(self, damage, source)
 	
 	for buff_pair in STATUS:
 		buff_pair.BUFF.on_receive_damage(self, damage, source)
 		
-	_set_health_relative(damage.AMOUNT)
+	_set_health_relative(-damage.AMOUNT)
 
 
 func _process(delta):
