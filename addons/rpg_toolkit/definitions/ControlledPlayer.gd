@@ -37,8 +37,8 @@ func attack(attack_angle: float):
 		"rotation": (attack_angle + PI/2),
 		"position": Vector2(0, -6),
 	}
-		
-	invItem.ANIMATION.play(self, parameters)
+	
+	invItem.attack(self, parameters)
 
 
 func _physics_process(delta):

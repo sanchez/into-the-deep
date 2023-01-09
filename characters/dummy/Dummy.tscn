@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbnj0xnrvicpd"]
+
+[ext_resource type="Texture2D" uid="uid://wc7s5qoa8pbn" path="res://characters/dummy/dummy.png" id="1_50ku6"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/Health.gd" id="2_vdtvt"]
+[ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="3_dhxfs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_con8x"]
+radius = 3.0
+height = 14.0
+
+[node name="Dummy" type="StaticBody2D"]
+collision_layer = 257
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_50ku6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_con8x")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_vdtvt")
+
+[node name="HealthBar" parent="Health" instance=ExtResource("3_dhxfs")]
+position = Vector2(0, 4)

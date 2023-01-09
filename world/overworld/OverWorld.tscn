@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0o54d44iwcka"]
+[gd_scene load_steps=7 format=3 uid="uid://b0o54d44iwcka"]
 
 [ext_resource type="Script" path="res://addons/world_manager/definitions/World.gd" id="1_7me6i"]
 [ext_resource type="TileSet" uid="uid://cnyu3e7h7daw2" path="res://world/tileset.tres" id="2_fgq5k"]
 [ext_resource type="PackedScene" uid="uid://c85n0y1p41p5k" path="res://world/void/VoidDoor.tscn" id="3_3wusv"]
 [ext_resource type="Script" path="res://addons/world_manager/definitions/Spawn.gd" id="4_tu0yd"]
+[ext_resource type="PackedScene" uid="uid://dbnj0xnrvicpd" path="res://characters/dummy/Dummy.tscn" id="5_d1nm2"]
 
 [sub_resource type="Environment" id="Environment_qamv5"]
 background_mode = 1
@@ -42,3 +43,6 @@ NAME = "Main"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qamv5")
+
+[node name="Dummy" parent="." instance=ExtResource("5_d1nm2")]
+position = Vector2(108, 140)

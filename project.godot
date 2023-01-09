@@ -109,16 +109,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/rpg_toolkit/components/inventory_picker/InventoryTypeChecker.gd"
 }, {
-"base": "Resource",
-"class": &"RPG_Animation",
-"language": &"GDScript",
-"path": "res://addons/rpg_toolkit/animations/Animation.gd"
-}, {
-"base": "RPG_Animation",
-"class": &"RPG_AnimationScene",
-"language": &"GDScript",
-"path": "res://addons/rpg_toolkit/animations/AnimationScene.gd"
-}, {
 "base": "Marker2D",
 "class": &"Spawn",
 "language": &"GDScript",
@@ -200,8 +190,6 @@ _global_script_class_icons={
 "Inventory": "",
 "InventorySlot": "",
 "InventoryTypeChecker": "",
-"RPG_Animation": "",
-"RPG_AnimationScene": "",
 "Spawn": "",
 "SwordInvItem": "",
 "WeaponInvItem": "",
@@ -288,6 +276,8 @@ attack={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_9="Body"
+2d_physics/layer_10="Weapon"
 
 [rendering]
 

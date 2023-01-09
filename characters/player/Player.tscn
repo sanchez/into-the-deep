@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bfajawjairb3e" path="res://addons/rpg_toolkit/components/inventory/Inventory.tscn" id="3_75sjt"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/items/WeaponTypeChecker.gd" id="4_bomsm"]
 [ext_resource type="PackedScene" uid="uid://6gnllbyp6h7" path="res://addons/rpg_toolkit/components/inventory_picker/InventoryPicker.tscn" id="4_iceap"]
+[ext_resource type="Resource" uid="uid://cdmq8mi273b3y" path="res://items/weapons/sword/base-sword.tres" id="5_8wo2c"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/Health.gd" id="5_27moy"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/inventory_picker/InventorySlot.gd" id="5_m8ih5"]
-[ext_resource type="Resource" uid="uid://c4x1i8rlsudlr" path="res://items/weapons/sword/base-sword.tres" id="5_yvvng"]
 [ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="6_duouo"]
 [ext_resource type="Resource" uid="uid://cde0x6swgrnx8" path="res://buffs/burn/burn.tres" id="8_qklbh"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/BuffStackPair.gd" id="9_t67f4"]
@@ -522,7 +522,7 @@ script = ExtResource("4_bomsm")
 
 [sub_resource type="Resource" id="Resource_c24mb"]
 script = ExtResource("5_m8ih5")
-ITEM = ExtResource("5_yvvng")
+ITEM = ExtResource("5_8wo2c")
 CONSTRAINT = SubResource("Resource_sho2u")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uxpj"]

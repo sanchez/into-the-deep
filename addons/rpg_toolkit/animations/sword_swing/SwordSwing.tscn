@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c64oyech3s608"]
+[gd_scene load_steps=7 format=3 uid="uid://c64oyech3s608"]
 
+[ext_resource type="Script" path="res://addons/rpg_toolkit/animations/sword_swing/SwordSwing.gd" id="1_enuk4"]
 [ext_resource type="Texture2D" uid="uid://df3asnmwl11cw" path="res://items/weapons/sword/base-sword.png" id="1_rlker"]
 
 [sub_resource type="Animation" id="Animation_c4iqv"]
@@ -53,7 +54,11 @@ _data = {
 "SWING": SubResource("Animation_vs700")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej3nn"]
+size = Vector2(14.2381, 3)
+
 [node name="SwordSwing" type="Node2D"]
+script = ExtResource("1_enuk4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SWING"
@@ -67,3 +72,14 @@ position = Vector2(0, -4)
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(6, -6)
 texture = ExtResource("1_rlker")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Sprite2D"]
+collision_layer = 512
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/Area2D"]
+position = Vector2(2.94093, -3.12899)
+rotation = -0.831572
+shape = SubResource("RectangleShape2D_ej3nn")
+
+[connection signal="body_entered" from="Node2D/Sprite2D/Area2D" to="." method="on_hit"]

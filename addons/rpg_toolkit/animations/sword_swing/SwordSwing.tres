@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b1ccnjpb24jw2"]
-
-[ext_resource type="PackedScene" uid="uid://c64oyech3s608" path="res://addons/rpg_toolkit/animations/sword_swing/SwordSwing.tscn" id="1_q4yw0"]
-[ext_resource type="Script" path="res://addons/rpg_toolkit/animations/AnimationScene.gd" id="1_w78gv"]
-
-[resource]
-script = ExtResource("1_w78gv")
-SCENE = ExtResource("1_q4yw0")
