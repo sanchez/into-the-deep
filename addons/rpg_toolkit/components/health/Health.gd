@@ -18,7 +18,7 @@ func reset():
 func add_buff(buff: Buff, stack: int, source = null):
 	var pair = BuffStackPair.new()
 	pair.BUFF = buff
-	pair.stack = stack
+	pair.STACK = stack
 	STATUS.append(pair)
 	emit_signal("on_update")
 	

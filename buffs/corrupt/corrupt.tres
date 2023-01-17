@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/rpg_toolkit/damage/attributes/OnTickAmount.gd" id="5_bsx1v"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/damage/attributes/IncrementBuffStack.gd" id="6_4xakd"]
 
-[sub_resource type="Resource" id="Resource_2dsm6"]
+[sub_resource type="Resource" id="Resource_w1unt"]
 script = ExtResource("6_4xakd")
 AMOUNT = 1
 
@@ -39,8 +39,8 @@ CHILD = SubResource("Resource_fv2nl")
 script = ExtResource("1_yy56q")
 KEY = "CORRUPT"
 ICON = ExtResource("1_0mycf")
-ON_APPLY = [SubResource("Resource_2dsm6")]
+ON_APPLY = []
 ON_REMOVE = null
 ON_RECEIVE_DAMAGE = null
-ON_ATTACK = null
+ON_ATTACK = [SubResource("Resource_w1unt")]
 ON_TICK = [SubResource("Resource_vucl8"), SubResource("Resource_foac5")]
