@@ -1,18 +1,25 @@
-[gd_scene load_steps=32 format=3 uid="uid://k3idq3nsgwwo"]
+[gd_scene load_steps=35 format=3 uid="uid://k3idq3nsgwwo"]
 
 [ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
 [ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://characters/player/base-character.png" id="2_xxeqh"]
 [ext_resource type="PackedScene" uid="uid://bfajawjairb3e" path="res://addons/rpg_toolkit/components/inventory/Inventory.tscn" id="3_75sjt"]
+[ext_resource type="Resource" uid="uid://wjj6krcue3b3" path="res://buffs/corrupt/corrupt.tres" id="3_klppm"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/items/WeaponTypeChecker.gd" id="4_bomsm"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/BuffStackPair.gd" id="4_e6ehh"]
 [ext_resource type="PackedScene" uid="uid://6gnllbyp6h7" path="res://addons/rpg_toolkit/components/inventory_picker/InventoryPicker.tscn" id="4_iceap"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/Health.gd" id="5_27moy"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/inventory_picker/InventorySlot.gd" id="5_m8ih5"]
 [ext_resource type="Resource" uid="uid://rt8w36yqyetq" path="res://items/weapons/sword/corrupt-sword/corrupt-sword.tres" id="5_nfqwy"]
 [ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="6_duouo"]
 
+[sub_resource type="Resource" id="Resource_v840b"]
+script = ExtResource("4_e6ehh")
+BUFF = ExtResource("3_klppm")
+STACK = 2
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
-radius = 2.5
-height = 8.0
+radius = 7.0
+height = 34.0
 
 [sub_resource type="Animation" id="Animation_wqf7l"]
 resource_name = "DOWN"
@@ -28,7 +35,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,7 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -86,7 +93,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -115,7 +122,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -144,7 +151,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -173,7 +180,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -202,7 +209,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -231,7 +238,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -275,7 +282,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -304,7 +311,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -333,7 +340,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -362,7 +369,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -391,7 +398,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -420,7 +427,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -449,7 +456,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -478,7 +485,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(4, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -523,17 +530,28 @@ ITEM = ExtResource("5_nfqwy")
 CONSTRAINT = SubResource("Resource_sho2u")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uxpj"]
-size = Vector2(14, 10)
+size = Vector2(40, 20)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_w3pei")
+MAX_SPEED = 1200.0
+ACCELERATION = 160.0
 ANIMATION_PLAYER_PATH = NodePath("AnimationPlayer")
 
+[node name="Health" type="Node" parent="."]
+script = ExtResource("5_27moy")
+STATUS = [SubResource("Resource_v840b")]
+
+[node name="HealthBar" parent="Health" instance=ExtResource("6_duouo")]
+z_index = -1
+position = Vector2(0, 12)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -30)
+scale = Vector2(4, 4)
 texture = ExtResource("2_xxeqh")
 hframes = 6
 vframes = 10
@@ -544,7 +562,7 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_6nm0w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "DOWN_LEFT"
+autoplay = "DOWN"
 playback_process_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_rgbnu")
@@ -560,12 +578,5 @@ SLOTS = [SubResource("Resource_c24mb")]
 shape = SubResource("RectangleShape2D_2uxpj")
 
 [node name="InventoryPicker" parent="Inventory" instance=ExtResource("4_iceap")]
-
-[node name="Health" type="Node" parent="."]
-script = ExtResource("5_27moy")
-STATUS = []
-
-[node name="HealthBar" parent="Health" instance=ExtResource("6_duouo")]
-position = Vector2(0, 4)
 
 [connection signal="on_death" from="Health" to="." method="die"]

@@ -16,4 +16,8 @@ func attack(source, parameters: Dictionary):
 	if parameters.has("position"):
 		animation.position = parameters["position"]
 		
+	if parameters.has("scale"):
+		animation.scale.x = parameters["scale"]
+		animation.scale.y = parameters["scale"]
+		
 	source.add_child(animation)

@@ -5,15 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="3_dhxfs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_con8x"]
-radius = 3.0
-height = 14.0
+radius = 7.0
+height = 54.0
 
 [node name="Dummy" type="StaticBody2D"]
 collision_layer = 257
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
 texture = ExtResource("1_50ku6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,4 +25,4 @@ shape = SubResource("CapsuleShape2D_con8x")
 script = ExtResource("2_vdtvt")
 
 [node name="HealthBar" parent="Health" instance=ExtResource("3_dhxfs")]
-position = Vector2(0, 4)
+position = Vector2(0, 13)

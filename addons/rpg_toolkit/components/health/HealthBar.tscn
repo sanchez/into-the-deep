@@ -7,7 +7,7 @@ z_index = 100
 script = ExtResource("1_2dpxm")
 
 [node name="Remaining" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(20, 2)
+custom_minimum_size = Vector2(80, 8)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,7 +18,7 @@ grow_vertical = 2
 color = Color(0.949823, 0.436944, 0.384287, 1)
 
 [node name="Bar" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(20, 2)
+custom_minimum_size = Vector2(80, 8)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,6 +33,6 @@ grow_vertical = 2
 color = Color(0.184813, 0.448757, 0.240805, 1)
 
 [node name="BuffStart" type="Marker2D" parent="."]
-position = Vector2(-9, 3)
+position = Vector2(-40, 4)
 
 [node name="Buffs" type="Node" parent="."]

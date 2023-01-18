@@ -4,6 +4,7 @@ class_name ControlledPlayer
 @export var MAX_SPEED := 300.0
 @export var ACCELERATION := 40.0
 @export var FRICTION := 0.8
+@export var WEAPON_SCALE := 1.0
 
 @export_node_path(AnimationPlayer) var ANIMATION_PLAYER_PATH
 
@@ -36,6 +37,7 @@ func attack(attack_angle: float):
 	var parameters = {
 		"rotation": (attack_angle + PI/2),
 		"position": Vector2(0, -6),
+		"scale": WEAPON_SCALE
 	}
 	
 	invItem.attack(self, parameters)

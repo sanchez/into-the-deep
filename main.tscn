@@ -16,5 +16,6 @@ PLAYER = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("1_hip5i")]
 position = Vector2(92, 114)
+WEAPON_SCALE = 4.0
 
 [node name="FPSCounter" parent="." instance=ExtResource("2_txslr")]

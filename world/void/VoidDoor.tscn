@@ -41,10 +41,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24txa"]
-size = Vector2(12, 3)
+size = Vector2(48, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ucii"]
-radius = 25.0
+radius = 100.0
 
 [node name="VoidDoor" type="Area2D"]
 collision_mask = 2
@@ -52,7 +52,8 @@ script = ExtResource("1_gx718")
 TARGET = "Void"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -28)
+scale = Vector2(4, 4)
 texture = ExtResource("2_0ngvl")
 hframes = 19
 
@@ -63,7 +64,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_24txa")
 
 [node name="Area2D" type="Area2D" parent="."]
