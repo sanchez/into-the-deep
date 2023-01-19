@@ -5,6 +5,9 @@ extends Node2D
 @export var ICON_SCALE = 1.0
 @export var ICON_SPACING = 2
 
+@export var FONT: Font
+@export var FONT_SIZE = 16
+
 
 var health: Health
 var position_offset := Vector2.ZERO
@@ -47,6 +50,12 @@ func _draw():
 		var icon_rect = Rect2(position, Vector2(ICON_SIZE * ICON_SCALE, ICON_SIZE * ICON_SCALE))
 		
 		draw_texture_rect(buff.ICON, icon_rect, false)
+		if buff_stack.STACK > 1 and is_instance_valid(FONT):
+			var stack_count_str = str(buff_stack.STACK)
+			if buff_stack.STACK > 9:
+				stack_count_str = "+"
+			var bottom_right = position + Vector2(ICON_SIZE * ICON_SCALE * 3 / 4, ICON_SIZE * ICON_SCALE + FONT_SIZE)
+			draw_string(FONT, bottom_right, str(buff_stack.STACK), HORIZONTAL_ALIGNMENT_LEFT, -1, FONT_SIZE)
 
 
 func draw_health_bar():

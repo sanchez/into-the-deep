@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://k3idq3nsgwwo"]
+[gd_scene load_steps=36 format=3 uid="uid://k3idq3nsgwwo"]
 
 [ext_resource type="Script" path="res://addons/rpg_toolkit/definitions/ControlledPlayer.gd" id="1_w3pei"]
 [ext_resource type="Texture2D" uid="uid://tr0hmpuq03lr" path="res://characters/player/base-character.png" id="2_xxeqh"]
@@ -10,12 +10,13 @@
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/Health.gd" id="5_27moy"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/components/inventory_picker/InventorySlot.gd" id="5_m8ih5"]
 [ext_resource type="Resource" uid="uid://rt8w36yqyetq" path="res://items/weapons/sword/corrupt-sword/corrupt-sword.tres" id="5_nfqwy"]
+[ext_resource type="FontFile" uid="uid://xbx7gc61ixf4" path="res://ui/FFFFORWA.TTF" id="6_1hnoy"]
 [ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="6_duouo"]
 
 [sub_resource type="Resource" id="Resource_v840b"]
 script = ExtResource("4_e6ehh")
 BUFF = ExtResource("3_klppm")
-STACK = 2
+STACK = 4
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm0w"]
 radius = 7.0
@@ -548,6 +549,8 @@ STATUS = [SubResource("Resource_v840b")]
 [node name="HealthBar" parent="Health" instance=ExtResource("6_duouo")]
 z_index = -1
 position = Vector2(0, 12)
+FONT = ExtResource("6_1hnoy")
+FONT_SIZE = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30)
