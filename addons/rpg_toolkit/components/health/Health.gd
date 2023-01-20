@@ -36,7 +36,9 @@ func set_buff(buff: Buff, stack: int):
 		
 	for x in STATUS:
 		if x.BUFF.KEY == buff.KEY:
-			x.STACK = stack
+			if x.STACK != stack:
+				x.STACK = stack
+				emit_signal("on_update")
 			return
 			
 	add_buff(buff, stack)
@@ -51,6 +53,8 @@ func set_buff_relative(buff: Buff, stack: int):
 			x.STACK += stack
 			if x.STACK <= 0:
 				remove_buff(buff)
+			else:
+				emit_signal("on_update")
 				
 			return
 			
