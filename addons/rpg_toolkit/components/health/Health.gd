@@ -8,6 +8,8 @@ class_name Health
 
 signal on_death()
 signal on_update()
+signal on_took_damage(damage_amount: float)
+signal on_heal(heal_amount: float)
 
 
 func reset():
@@ -74,6 +76,10 @@ func _set_health(health: int, relative: int):
 	HEALTH = clamp(health, 0, MAX_HEALTH)
 	
 	print("Taking Damage: ", relative)
+	if relative < 0:
+		emit_signal("on_took_damage", relative)
+	if relative > 0:
+		emit_signal("on_heal", relative)
 	
 	if HEALTH <= 0:
 		emit_signal("on_death")

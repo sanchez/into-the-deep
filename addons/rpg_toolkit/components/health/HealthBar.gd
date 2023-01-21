@@ -15,6 +15,9 @@ var position_offset := Vector2.ZERO
 @onready var BarNode := $Bar
 @onready var BuffStart := $BuffStart
 
+var HIT_INDICATOR := preload("res://addons/rpg_toolkit/components/health/HitIndicator.tscn")
+@export var HIT_INDICATOR_OFFSET: Vector2 = Vector2(0, -40)
+
 
 func _ready():
 	position_offset = position
@@ -26,6 +29,7 @@ func _ready():
 		push_error("Failed to find health class for health bar")
 		
 	health.connect("on_update", queue_redraw)
+	health.connect("on_took_damage", handle_took_damage)
 
 
 func _draw():
@@ -61,6 +65,13 @@ func _draw():
 func draw_health_bar():
 	var ratio = clamp(health.HEALTH / health.MAX_HEALTH, 0, 1)
 	BarNode.scale.x = ratio
+	
+
+func handle_took_damage(amount: float):
+	var hit_indicator = HIT_INDICATOR.instantiate()
+	hit_indicator.AMOUNT = amount
+	hit_indicator.position += HIT_INDICATOR_OFFSET
+	add_child(hit_indicator)
 
 
 func _process(delta):
