@@ -75,7 +75,6 @@ func remove_buff(buff: Buff):
 func _set_health(health: int, relative: int):
 	HEALTH = clamp(health, 0, MAX_HEALTH)
 	
-	print("Taking Damage: ", relative)
 	if relative < 0:
 		emit_signal("on_took_damage", relative)
 	if relative > 0:
