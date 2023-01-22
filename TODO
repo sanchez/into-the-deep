@@ -1,5 +1,20 @@
+Shortcuts: Ctrl+Enter for new item, Alt+D to mark as done
 
-Todo:
-  ☐ Item
-  ☐ Inventory Management UI @rpg_library
-  ☐ Redo the Void Tilemap to be edge-to-edge mapping @pixelart
+Weapons:
+  ☐ Bow and Arrow
+
+Levels:
+  Planning:
+    ☐ Come up with more stages
+  Void:
+    ☐ Redraw the tilemap
+
+Quest System:
+  ☐ Implement functionality for generic interaction
+    ☐ Should also work on some level of dialogue system too
+  ☐ Plan out how the quest system should work
+  ☐ Implement tracking/handling of experience
+
+Inventory System:
+  ☐ Develop the Inventory UI
+  ☐ Implement currencies
