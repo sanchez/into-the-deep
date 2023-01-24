@@ -1,13 +1,34 @@
 Shortcuts: Ctrl+Enter for new item, Alt+D to mark as done
 
 Weapons:
-  ☐ Bow and Arrow
+  ☐ *Sword:* General broad area damage, a good medium between damage and affected area
+  ☐ *Bow and Arrow:* Decent damage, aimed to sit back and slowly chip away at enemies, more strategic placement
+  ☐ *Knuckle busters:* Terrible damage, but lots of hits, players would pick this to run in apply lots of buff stacks and then run out, I want this to require a lot of skill and loss strategy but planning
+  ☐ *Spear:* Good targetted damage, have a longer lunge area than the sword
+
+Buffs:
+  ☐ *Magma:* You leave a trail of pools/puddles that damage people when they standing on it
+  ☐ *Shock:* Upon taking more damage, chains of electricity are applied to surrounding enemies (don't chain, just immediate)
+    With Shock, if two enemies have shock applied then they can infact have an infinite loop of applying shock. For the time being I am happy with this functionality
+  ☐ *Freeze:* Slowed down movement and attack
+  ☐ *Rooted:* Unable to move but can attack
+  ☐ *Shielded:* Reduced damage applied
+
+Artifacts:
+  ☐ *Battery* -> Applies shock to hits
+  ☐ *Health Kit* -> Activating your ability heals you
+  ☐ *Touch of Cold* -> All attacks now apply a stack of freeze
+  ☐ *Leach* - When you are near an enemy you can steal some of their health
+
+Enemies:
+  ☐ *Knight:* Simple medium moving speed, decent health, single downward strike
 
 Levels:
   Planning:
     ☐ Come up with more stages
   Void:
     ☐ Redraw the tilemap
+
 
 Quest System:
   ☐ Implement functionality for generic interaction
@@ -18,3 +39,11 @@ Quest System:
 Inventory System:
   ☐ Develop the Inventory UI
   ☐ Implement currencies
+
+World System:
+  ☐ Add support for spawning in projectiles and ensuring the projectiles are despawned with the world transition
+
+Todo:
+  ☐ One shot protection - prevent character from taking more damage than health they have
+  ☐ Redo the animations
+  ☐ Look into animation and best practices
