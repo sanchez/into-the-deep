@@ -22,6 +22,7 @@ Artifacts:
 
 Enemies:
   ☐ *Knight:* Simple medium moving speed, decent health, single downward strike
+  ☐ *Blob:* Very simple enemy, usually the starting enemy of the stages with the powerup of that stage
 
 Levels:
   Planning:
@@ -47,3 +48,4 @@ Todo:
   ☐ One shot protection - prevent character from taking more damage than health they have
   ☐ Redo the animations
   ☐ Look into animation and best practices
+  ☐ Maybe change the animations for the guy to wear a backpack
