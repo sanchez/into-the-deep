@@ -13,14 +13,10 @@ class_name ControlledPlayer
 @onready var InventoryNode := $Inventory
 
 var _direction_lookup = {
-	Vector2.UP.angle(): "UP",
-	(Vector2.UP + Vector2.RIGHT).angle(): "UP_RIGHT",
-	Vector2.RIGHT.angle(): "RIGHT",
-	(Vector2.RIGHT + Vector2.DOWN).angle(): "DOWN_RIGHT",
-	Vector2.DOWN.angle(): "DOWN",
-	(Vector2.DOWN + Vector2.LEFT).angle(): "DOWN_LEFT",
-	Vector2.LEFT.angle(): "LEFT",
-	(Vector2.LEFT + Vector2.UP).angle(): "UP_LEFT",
+	Vector2.UP.angle(): "up",
+	Vector2.RIGHT.angle(): "right",
+	Vector2.DOWN.angle(): "down",
+	Vector2.LEFT.angle(): "left",
 };
 
 var _last_dir_angle = Vector2.DOWN.angle()
@@ -70,7 +66,9 @@ func _physics_process(delta):
 		#ANIMATION_PLAYER.playback_speed = (actual_is_idle == is_idle) if 1 else 0.8
 		
 		if is_idle or actual_is_idle:
-			animation_lookup += "_IDLE"
+			animation_lookup += "_idle"
+		else:
+			animation_lookup += "_walk"
 			
 		if ANIMATION_PLAYER.has_animation(animation_lookup):
 			ANIMATION_PLAYER.play(animation_lookup)

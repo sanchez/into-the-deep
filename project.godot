@@ -8,6 +8,202 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "BuffAttribute",
+"class": &"BA_AssignBuff",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/AssignBuff.gd"
+}, {
+"base": "BuffAttribute",
+"class": &"BA_ChanceToApply",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/ChanceToApply.gd"
+}, {
+"base": "BuffAttribute",
+"class": &"BA_IncrementBuffStack",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/IncrementBuffStack.gd"
+}, {
+"base": "BuffAttributeOnTick",
+"class": &"BA_OnTickAmount",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/OnTickAmount.gd"
+}, {
+"base": "BuffAttribute",
+"class": &"BA_RemoveBuff",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/RemoveBuff.gd"
+}, {
+"base": "BuffAttribute",
+"class": &"BA_SetSingleStack",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/SetSingleStack.gd"
+}, {
+"base": "BuffAttribute",
+"class": &"BA_TakeDamage",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/attributes/TakeDamage.gd"
+}, {
+"base": "Resource",
+"class": &"Buff",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/Buff.gd"
+}, {
+"base": "Resource",
+"class": &"BuffAttribute",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/BuffAttribute.gd"
+}, {
+"base": "Resource",
+"class": &"BuffAttributeOnTick",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/BuffAttributeOnTick.gd"
+}, {
+"base": "Resource",
+"class": &"BuffStackPair",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/components/health/BuffStackPair.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"ControlledPlayer",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/definitions/ControlledPlayer.gd"
+}, {
+"base": "Resource",
+"class": &"Damage",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/damage/Damage.gd"
+}, {
+"base": "Area2D",
+"class": &"DoorWay",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/DoorWay.gd"
+}, {
+"base": "Node",
+"class": &"Health",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/components/health/Health.gd"
+}, {
+"base": "InventoryTypeChecker",
+"class": &"ITC_Or",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/components/inventory_picker/InventoryTypeCheckerOr.gd"
+}, {
+"base": "Resource",
+"class": &"InvItem",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/items/InvItem.gd"
+}, {
+"base": "Area2D",
+"class": &"Inventory",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/components/inventory/Inventory.gd"
+}, {
+"base": "Resource",
+"class": &"InventorySlot",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/components/inventory_picker/InventorySlot.gd"
+}, {
+"base": "Resource",
+"class": &"InventoryTypeChecker",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/components/inventory_picker/InventoryTypeChecker.gd"
+}, {
+"base": "Marker2D",
+"class": &"Spawn",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/Spawn.gd"
+}, {
+"base": "WeaponInvItem",
+"class": &"SwordInvItem",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/items/sword/SwordInvItem.gd"
+}, {
+"base": "InvItem",
+"class": &"WeaponInvItem",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/items/WeaponInvItem.gd"
+}, {
+"base": "InventoryTypeChecker",
+"class": &"WeaponTypeChecker",
+"language": &"GDScript",
+"path": "res://addons/rpg_toolkit/items/WeaponTypeChecker.gd"
+}, {
+"base": "Node2D",
+"class": &"World",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/World.gd"
+}, {
+"base": "Resource",
+"class": &"WorldLogic",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogic.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicContainer",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicIfGreaterEqual",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicIfGreaterEqual.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicIncrementOnFetch",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicIncrementOnFetch.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicRandom",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicRandom.gd"
+}, {
+"base": "WorldLogic",
+"class": &"WorldLogicScene",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldLogic/WorldLogicScene.gd"
+}, {
+"base": "Node2D",
+"class": &"WorldManager",
+"language": &"GDScript",
+"path": "res://addons/world_manager/definitions/WorldManager.gd"
+}]
+_global_script_class_icons={
+"BA_AssignBuff": "",
+"BA_ChanceToApply": "",
+"BA_IncrementBuffStack": "",
+"BA_OnTickAmount": "",
+"BA_RemoveBuff": "",
+"BA_SetSingleStack": "",
+"BA_TakeDamage": "",
+"Buff": "",
+"BuffAttribute": "",
+"BuffAttributeOnTick": "",
+"BuffStackPair": "",
+"ControlledPlayer": "",
+"Damage": "",
+"DoorWay": "",
+"Health": "",
+"ITC_Or": "",
+"InvItem": "",
+"Inventory": "",
+"InventorySlot": "",
+"InventoryTypeChecker": "",
+"Spawn": "",
+"SwordInvItem": "",
+"WeaponInvItem": "",
+"WeaponTypeChecker": "",
+"World": "",
+"WorldLogic": "",
+"WorldLogicContainer": "",
+"WorldLogicIfGreaterEqual": "",
+"WorldLogicIncrementOnFetch": "",
+"WorldLogicRandom": "",
+"WorldLogicScene": "",
+"WorldManager": ""
+}
+
 [application]
 
 config/name="into-the-deep"
@@ -20,13 +216,9 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="viewport"
 
-[editor]
-
-export/convert_text_resources_to_binary=true
-
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/rpg_toolkit/plugin.cfg", "res://addons/world_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/rpg_toolkit/plugin.cfg", "res://addons/world_manager/plugin.cfg", "res://addons/AsepriteWizard/plugin.cfg")
 
 [gui]
 
