@@ -12,12 +12,9 @@ class_name ControlledPlayer
 @onready var HealthNode := $Health
 @onready var InventoryNode := $Inventory
 
-var _direction_lookup = {
-	Vector2.UP.angle(): "up",
-	Vector2.RIGHT.angle(): "right",
-	Vector2.DOWN.angle(): "down",
-	Vector2.LEFT.angle(): "left",
-};
+@export var IDLE_SUFFIX = "_idle"
+@export var DIRECTION_LOOKUP: Array[ControlledPlayerAngleAnimation] = []
+
 
 var _last_dir_angle = Vector2.DOWN.angle()
 
@@ -55,9 +52,12 @@ func _physics_process(delta):
 		
 	if is_instance_valid(ANIMATION_PLAYER):
 		var animation_lookup = ""
-		for x in _direction_lookup.keys():
-			if abs(new_dir_angle - x) < PI / 6:
-				animation_lookup = _direction_lookup[x]
+		var closest_angle = 2 * PI
+		for x in DIRECTION_LOOKUP:
+			var angle_offset = abs(new_dir_angle - (x.ANGLE * 0.01745329))
+			if (angle_offset < closest_angle):
+				animation_lookup = x.ANIMATION
+				closest_angle = angle_offset
 		_last_dir_angle = new_dir_angle
 		
 		var actual_velocity = get_real_velocity()
