@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://cksokruh1x1qd"]
+
+[ext_resource type="Shader" path="res://characters/player/test.gdshader" id="1_7iwe4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sgm4s"]
+subdivide_width = 2
+subdivide_height = 2
+subdivide_depth = 2
+
+[sub_resource type="Animation" id="Animation_v3lbb"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7uxhr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2112"]
+_data = {
+"RESET": SubResource("Animation_7uxhr"),
+"new_animation": SubResource("Animation_v3lbb")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17rqg"]
+shader = ExtResource("1_7iwe4")
+shader_parameter/color_1 = Quaternion(1, 0, 0, 1)
+shader_parameter/color_2 = Quaternion(0, 1, 0, 1)
+shader_parameter/color_3 = Quaternion(0, 0, 1, 1)
+shader_parameter/pixelSize = 8
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.878659, 0.47745, 0, -0.47745, 0.878659, 0, 1.38593, 2.17392)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_sgm4s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.762759, 0.646683, 0, -0.646683, 0.762759, 0, 3.93147, 4.78834)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_h2112")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_17rqg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

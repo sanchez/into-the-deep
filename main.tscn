@@ -11,7 +11,7 @@ y_sort_enabled = true
 script = ExtResource("1_gl0is")
 STARTING_WORLD = "OverWorld"
 STARTING_CHANNEL = "Spawn"
-WORLDS = [ExtResource("2_8w3na"), ExtResource("3_qovak")]
+WORLDS = Array[Resource("res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd")]([ExtResource("2_8w3na"), ExtResource("3_qovak")])
 PLAYER = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("1_hip5i")]

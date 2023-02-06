@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dq3l0050gs52n"]
+[gd_resource type="Resource" script_class="WorldLogicContainer" load_steps=5 format=3 uid="uid://dq3l0050gs52n"]
 
 [ext_resource type="PackedScene" uid="uid://b0o54d44iwcka" path="res://world/overworld/OverWorld.tscn" id="1_ojs17"]
 [ext_resource type="Script" path="res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd" id="1_xdq1o"]
@@ -11,4 +11,4 @@ WORLD = ExtResource("1_ojs17")
 [resource]
 script = ExtResource("1_xdq1o")
 NAME = "OverWorld"
-CHILDREN = [SubResource("Resource_slabu")]
+CHILDREN = Array[Resource("res://addons/world_manager/definitions/WorldLogic/WorldLogic.gd")]([SubResource("Resource_slabu")])

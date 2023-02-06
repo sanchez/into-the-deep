@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=13 format=3 uid="uid://wjj6krcue3b3"]
+[gd_resource type="Resource" script_class="Buff" load_steps=13 format=3 uid="uid://wjj6krcue3b3"]
 
 [ext_resource type="Texture2D" uid="uid://bobres0aens7i" path="res://buffs/corrupt/corrupt.png" id="1_0mycf"]
 [ext_resource type="Script" path="res://addons/rpg_toolkit/damage/Buff.gd" id="1_yy56q"]
@@ -14,7 +14,7 @@ AMOUNT = 1
 [sub_resource type="Resource" id="Resource_83vas"]
 script = ExtResource("3_yehgo")
 AMOUNT = 15.0
-BUFFS = []
+BUFFS = Array[ExtResource("1_yy56q")]([])
 
 [sub_resource type="Resource" id="Resource_r7df4"]
 script = ExtResource("4_mowps")
@@ -39,8 +39,8 @@ CHILD = SubResource("Resource_fv2nl")
 script = ExtResource("1_yy56q")
 KEY = "CORRUPT"
 ICON = ExtResource("1_0mycf")
-ON_APPLY = []
+ON_APPLY = Array[Resource("res://addons/rpg_toolkit/damage/BuffAttribute.gd")]([])
 ON_REMOVE = null
 ON_RECEIVE_DAMAGE = null
-ON_ATTACK = [SubResource("Resource_w1unt")]
-ON_TICK = [SubResource("Resource_vucl8"), SubResource("Resource_foac5")]
+ON_ATTACK = Array[Resource("res://addons/rpg_toolkit/damage/BuffAttribute.gd")]([SubResource("Resource_w1unt")])
+ON_TICK = Array[Resource("res://addons/rpg_toolkit/damage/BuffAttributeOnTick.gd")]([SubResource("Resource_vucl8"), SubResource("Resource_foac5")])

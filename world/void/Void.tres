@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=13 format=3 uid="uid://cw3o64f840di1"]
+[gd_resource type="Resource" script_class="WorldLogicContainer" load_steps=13 format=3 uid="uid://cw3o64f840di1"]
 
 [ext_resource type="Script" path="res://addons/world_manager/definitions/WorldLogic/WorldLogicIncrementOnFetch.gd" id="1_fbck7"]
 [ext_resource type="Script" path="res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd" id="1_kqtnj"]
@@ -28,9 +28,9 @@ WORLD = ExtResource("5_h3e0u")
 
 [sub_resource type="Resource" id="Resource_urign"]
 script = ExtResource("6_tvpt7")
-CHILDREN = [SubResource("Resource_vo5y4")]
+CHILDREN = Array[Resource("res://addons/world_manager/definitions/WorldLogic/WorldLogic.gd")]([SubResource("Resource_vo5y4")])
 
 [resource]
 script = ExtResource("1_kqtnj")
 NAME = "Void"
-CHILDREN = [SubResource("Resource_p4ckp"), SubResource("Resource_a00xy"), SubResource("Resource_urign")]
+CHILDREN = Array[Resource("res://addons/world_manager/definitions/WorldLogic/WorldLogic.gd")]([SubResource("Resource_p4ckp"), SubResource("Resource_a00xy"), SubResource("Resource_urign")])
