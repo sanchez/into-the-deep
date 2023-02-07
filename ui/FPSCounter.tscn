@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsrhgf2g00bgd"]
+[gd_scene load_steps=3 format=3 uid="uid://dcso0kbbkpe5b"]
 
-[ext_resource type="Theme" uid="uid://vgo6c2vkk7l4" path="res://ui/theme.tres" id="1_f60kk"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="1_f60kk"]
 [ext_resource type="Script" path="res://ui/FPSCounter.gd" id="2_w56cv"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="FPSCounter" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 94.0
+offset_bottom = 67.0
 theme = ExtResource("1_f60kk")
 theme_override_font_sizes/font_size = 40
 text = "250"

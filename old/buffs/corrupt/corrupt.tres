@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Buff" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" uid="uid://bobres0aens7i" path="res://old/buffs/corrupt/corrupt.png" id="1_0mycf"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/Buff.gd" id="1_yy56q"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/Damage.gd" id="3_yehgo"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/attributes/TakeDamage.gd" id="4_mowps"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/attributes/OnTickAmount.gd" id="5_bsx1v"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/damage/attributes/IncrementBuffStack.gd" id="6_4xakd"]
+
+[sub_resource type="Resource" id="Resource_w1unt"]
+script = ExtResource("6_4xakd")
+AMOUNT = 1
+
+[sub_resource type="Resource" id="Resource_83vas"]
+script = ExtResource("3_yehgo")
+AMOUNT = 15.0
+BUFFS = Array[ExtResource("1_yy56q")]([])
+
+[sub_resource type="Resource" id="Resource_r7df4"]
+script = ExtResource("4_mowps")
+PREVENT_LOOP = true
+DAMAGE = SubResource("Resource_83vas")
+
+[sub_resource type="Resource" id="Resource_vucl8"]
+script = ExtResource("5_bsx1v")
+AMOUNT = 5.0
+CHILD = SubResource("Resource_r7df4")
+
+[sub_resource type="Resource" id="Resource_fv2nl"]
+script = ExtResource("6_4xakd")
+AMOUNT = -1
+
+[sub_resource type="Resource" id="Resource_foac5"]
+script = ExtResource("5_bsx1v")
+AMOUNT = 5.0
+CHILD = SubResource("Resource_fv2nl")
+
+[resource]
+script = ExtResource("1_yy56q")
+KEY = "CORRUPT"
+ICON = ExtResource("1_0mycf")
+ON_APPLY = Array[Resource("res://addons/rpg_toolkit/damage/BuffAttribute.gd")]([])
+ON_REMOVE = null
+ON_RECEIVE_DAMAGE = null
+ON_ATTACK = Array[Resource("res://addons/rpg_toolkit/damage/BuffAttribute.gd")]([SubResource("Resource_w1unt")])
+ON_TICK = Array[Resource("res://addons/rpg_toolkit/damage/BuffAttributeOnTick.gd")]([SubResource("Resource_vucl8"), SubResource("Resource_foac5")])

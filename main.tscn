@@ -1,21 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bevsdgjh3luqq"]
+[gd_scene load_steps=3 format=3 uid="uid://c2m2phu34xro7"]
 
 [ext_resource type="Script" path="res://addons/world_manager/definitions/WorldManager.gd" id="1_gl0is"]
-[ext_resource type="PackedScene" uid="uid://k3idq3nsgwwo" path="res://characters/player/Player.tscn" id="1_hip5i"]
-[ext_resource type="Resource" uid="uid://dq3l0050gs52n" path="res://world/overworld/OverWorld.tres" id="2_8w3na"]
-[ext_resource type="PackedScene" uid="uid://bsrhgf2g00bgd" path="res://ui/FPSCounter.tscn" id="2_txslr"]
-[ext_resource type="Resource" uid="uid://cw3o64f840di1" path="res://world/void/Void.tres" id="3_qovak"]
+[ext_resource type="PackedScene" uid="uid://dcso0kbbkpe5b" path="res://ui/FPSCounter.tscn" id="2_txslr"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_gl0is")
 STARTING_WORLD = "OverWorld"
 STARTING_CHANNEL = "Spawn"
-WORLDS = Array[Resource("res://addons/world_manager/definitions/WorldLogic/WorldLogicContainer.gd")]([ExtResource("2_8w3na"), ExtResource("3_qovak")])
-PLAYER = NodePath("Player")
-
-[node name="Player" parent="." instance=ExtResource("1_hip5i")]
-position = Vector2(92, 114)
-WEAPON_SCALE = 4.0
+WORLDS = null
 
 [node name="FPSCounter" parent="." instance=ExtResource("2_txslr")]

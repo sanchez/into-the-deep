@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" uid="uid://wc7s5qoa8pbn" path="res://old/characters/dummy/dummy.png" id="1_50ku6"]
+[ext_resource type="Script" path="res://addons/rpg_toolkit/components/health/Health.gd" id="2_vdtvt"]
+[ext_resource type="PackedScene" uid="uid://bdnkhf8u3luy" path="res://addons/rpg_toolkit/components/health/HealthBar.tscn" id="3_dhxfs"]
+[ext_resource type="FontFile" uid="uid://xbx7gc61ixf4" path="res://ui/FFFFORWA.TTF" id="4_2t5pr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_con8x"]
+radius = 7.0
+height = 54.0
+
+[node name="Dummy" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 257
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
+texture = ExtResource("1_50ku6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_con8x")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_vdtvt")
+
+[node name="HealthBar" parent="Health" instance=ExtResource("3_dhxfs")]
+position = Vector2(0, 13)
+FONT = ExtResource("4_2t5pr")
+FONT_SIZE = 8
